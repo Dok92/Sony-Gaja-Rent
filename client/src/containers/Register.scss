@@ -1,0 +1,49 @@
+
+.form-register {
+  width: 300px;
+  max-width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  & .ps5-btn-register {
+    background: none;
+    width: 100%;
+  }
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+  display: block;
+  width: 95%;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  border-bottom: 2px solid rgba(131, 129, 129, 0.4);
+  color: #fff; 
+}
+
+
+.member-btn {
+  background-color: rgba(0, 0, 0, 0.523);
+  font-size: 16px;
+  margin-left: 10px;
+  padding: 5px;
+  border: none
+}
+
+.form-row {
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.form-label {
+  font-size: 16px;
+}
+
+h3 {
+  text-align: center;
+}
