@@ -39,13 +39,78 @@ const AddRent = () => {
     handleChange({ name: 'console', value: location.split('/')[1] })
   })
 
-  // TODO calculate price based on console, days, controllers and projector
-  
-// if (console === 'ps4') {
-//   if (controllers == '2') {
-//     const pricing = days
-//   }
-// }
+  useEffect(() => {
+    const psPricing = () => {
+      if (console === 'ps4') {
+        if (controllers === '2') {
+          if (days === '1') {
+            return 1300    
+          } else if (days === '2') {
+            return 2000
+          } else if (days === '3') {
+            return 2800
+          } else if (days === '4') {
+            return 3500
+          } else if (days === '5') {
+            return 4300
+          } else if (days === '6') {
+            return 5000
+          } else if (days === '7') {
+            return 5500
+          }
+        } else if (controllers === '4') {
+          if (days === '1') {
+            return 1500    
+          } else if (days === '2') {
+            return 2300
+          } else if (days === '3') {
+            return 3300
+          } else if (days === '4') {
+            return 4000
+          } else if (days === '5') {
+            return 5000
+          } else if (days === '6') {
+            return 5700
+          } else if (days === '7') {
+            return 6500
+          }
+        }
+      } else if (console === 'ps5') {
+        if (controllers === '2') {
+          if (days === '1') {
+            return 2000    
+          } else if (days === '2') {
+            return 3400
+          } else if (days === '3') {
+            return 4500
+          }
+        } else if (controllers === '4') {
+          if (days === '1') {
+            return 2400    
+          } else if (days === '2') {
+            return 3800
+          } else if (days === '3') {
+            return 4900
+          } 
+        }
+      }
+      return 0
+    }
+
+    const projectorPricing = () => {
+      if (projector === '1 dan') {
+        return 1500
+      } else if (projector === '2 dana') {
+        return 2500
+      } else if (projector === '3 dana') {
+        return 3300
+      } else if (projector === '4 dana') {
+        return 3900
+      }
+      return 0
+    }
+    handleChange({ name: 'price', value: psPricing() + projectorPricing() })
+  })
   
 
 const handleSubmit = (e) => {
@@ -107,7 +172,7 @@ const handleRentInput = (e) => {
         handleChange={handleRentInput}
       />
       <div className='btn-container'>
-        <h4>Ukupno: </h4>
+        <h4>Ukupno: {price}</h4>
         <button
           type='submit'
           className='ps5-btn ps5-btn-lg ps5-btn-primary'

@@ -9,13 +9,13 @@ const RentSchema = new Schema(
       type: String
     },
     days: { 
-      type: Number,
+      type: Number || '',
       required: [true, 'Molimo unesite broj dana'],
       // enum: ['full-time', 'part-time', 'remote', 'internship'],
       // default: 'full-time',
     },
     controllers: {
-      type: Number,
+      type: Number || '',
       required: [true, 'Molimo unesite broj džojstika']
     },
     rentLocation: {
@@ -28,6 +28,9 @@ const RentSchema = new Schema(
     },
     price: {
       type: Number
+    },
+    note: {
+      type: String
     },
     createdBy: {
       type: Schema.Types.ObjectId,

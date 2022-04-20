@@ -50,10 +50,10 @@ const initialState = {
   // company: '',
   // jobLocation: userLocation || '',
   console: '',
-  days: '', // NOTE default for status options
+  days: 0, // NOTE default for status options
   daysOptionsPs4: ['', 1, 2, 3, 4, 5, 6, 7], // statusOptions
   daysOptionsPs5: ['', 1, 2, 3], // statusOptions  
-  controllers: '',
+  controllers: 0,
   controllersOptions: ['', 2, 4],
   rentLocation: '', // NOTE default for location - old jobType
   rentLocationOptions: ['', 'Novi Sad', 'Veternik', 'Futog', 'Sremska Kamenica', 'Petrovaradin'], // jobTypeOptions
@@ -63,7 +63,7 @@ const initialState = {
   projectorOptions: ['Ne', '1 dan', '2 dana', '3 dana', '4 dana'], 
   // TODO row - napomena
   note: '',
-  price: '',
+  price: 0,
   rents: [],
   totalRents: 0,
   numOfPages: 1,
