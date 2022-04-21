@@ -33,11 +33,7 @@ const AddRent = () => {
     // editRent,
   } = useAppContext()
 
-  let location = useLocation().pathname;
-
-  useEffect(() => {
-    handleChange({ name: 'console', value: location.split('/')[1] })
-  })
+  const location = useLocation().pathname;
 
   useEffect(() => {
     const psPricing = () => {
@@ -109,28 +105,27 @@ const AddRent = () => {
       }
       return 0
     }
+
+    handleChange({ name: 'console', value: location.split('/')[1] })
     handleChange({ name: 'price', value: psPricing() + projectorPricing() })
-  })
-  
+  }, [console, controllers, days, handleChange, projector, location])
+    
 
-const handleSubmit = (e) => {
-  e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault()
 
-  if (!days || !controllers || !rentLocation) {
-    displayAlert()
-    return
+    if (!days || !controllers || !rentLocation) {
+      displayAlert()
+      return
+    }  
+    createRent()
   }
 
-  // const price = calculatePrice() 
-  
-  createRent()
-}
-
-const handleRentInput = (e) => {
-  const name = e.target.name
-  const value = e.target.value
-  handleChange({name, value})
-}
+  const handleRentInput = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    handleChange({name, value})
+  }
 
   return (    
     <form className='form-add-rent'>
@@ -172,7 +167,7 @@ const handleRentInput = (e) => {
         handleChange={handleRentInput}
       />
       <div className='btn-container'>
-        <h4>Ukupno: {price}</h4>
+        <h4>Iznos: {price}</h4>
         <button
           type='submit'
           className='ps5-btn ps5-btn-lg ps5-btn-primary'

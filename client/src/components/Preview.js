@@ -9,7 +9,7 @@ class Preview extends Component {
     const item = this.props.app;  
 
     return (
-      <div className="ps5-preview ps5-animate-from-bottom" key={item.label}>
+      <div className="ps5-preview ps5-animate-from-bottom" key={item.label}> 
         <div>
           {item.title && <h2>{item.title}</h2>}
 

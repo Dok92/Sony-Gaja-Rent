@@ -59,7 +59,7 @@ const initialState = {
   rentLocationOptions: ['', 'Novi Sad', 'Veternik', 'Futog', 'Sremska Kamenica', 'Petrovaradin'], // jobTypeOptions
   // TODO select - broj dzojstika
   // TODO select - sa projektorom (select ili boolean)
-  projector: 'sa projektorom',
+  projector: 'Ne',
   projectorOptions: ['Ne', '1 dan', '2 dana', '3 dana', '4 dana'], 
   // TODO row - napomena
   note: '',

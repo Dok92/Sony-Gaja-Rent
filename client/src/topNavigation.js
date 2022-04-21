@@ -21,7 +21,7 @@ export const menuPrimary = [
     url: "/profile",
     content: [
       { app: Profile.profile },
-      { app: Profile.editProfile },
+      // { app: Profile.editProfile },
     ], 
   },
 ];

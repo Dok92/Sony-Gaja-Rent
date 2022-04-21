@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Disk.scss";
+import Avatar from "./Avatar";
 
 const classNames = require("classnames");
-
 class Disk extends Component {
   render() {
     const item = this.props.item; 
@@ -27,6 +27,7 @@ class Disk extends Component {
       >
         <div>
           {item.label && <h3>{item.label}</h3>}
+          {item.profile && <Avatar />}
         </div>
       </Link>
     );

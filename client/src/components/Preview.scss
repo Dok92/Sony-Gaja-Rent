@@ -3,10 +3,14 @@
 .ps5-preview {
   // margin: $margin-x 0;
   margin-top: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: flex-end;
+  // flex-wrap: wrap;
+
+  table {
+    width: 100%;
+  }
 
   @media (min-width: 576px) {
     flex-wrap: nowrap;

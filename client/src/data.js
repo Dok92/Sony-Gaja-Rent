@@ -1,12 +1,15 @@
 import rent from "./assets/cover-store.png";
 // import coverNetflix from "./assets/cover-netflix.png";
-import avatar from "./assets/profile-avatar.jfif";
+// import avatar from "./assets/profile-avatar.jfif";
+import avatar from "./assets/user-1.jpg";
 import coverSpotify from "./assets/cover-spotify.png";
 // import coverDisney from "./assets/cover-disney.png";
 // import allGames from "./assets/all-games.jpg";
 import buttonsBlack from "./assets/buttons-black.jpg";
 // import charSkyrim from "./assets/char-skyrimFront.jpg";
-import charWitcher from "./assets/char-witcherFront.jpg";
+// import charWitcher from "./assets/char-witcherFront.jpg";
+import charWitcher from "./assets/char-witcherFront-darker.jpg";
+import charWitcherDarkBottom from "./assets/char-witcherFront-dark-bottom.jpg";
 import ps4Back from "./assets/ps4/ps4-accessories.jpg";
 // import ps4BackWhiteShort from "./assets/ps4/ps4-white-bg-short.webp";
 import ps4Cover from "./assets/ps4/ps4-cover.png";
@@ -16,27 +19,27 @@ import ps5Cover from "./assets/ps5/ps5-cover.png";
 // import oneLong from "./assets/tryout/spidy-long.jpg";
 import two from "./assets/tryout/marvels-spider-man-miles-morales-photo-mode-playstation-5-3840x2160-3631.jpg"
 // import three from "./assets/tryout/mortal-kombat-2021-movies-scorpion-sub-zero-black-2560x1440-4712.jpg"
- 
+import Avatar from "./components/Avatar";
 
 export const Profile = {
   profile: {
     cover: avatar,
-    label: "Profil",
-    bg: buttonsBlack,
-    title: "Profil",
-    text:
-      "Watch movies, TV shows and more with Netflix on PS5, streaming the latest original programming.",
+    // label: <Avatar />,
+    profile: true,
+    bg: charWitcherDarkBottom,
+    // title: "Profil",
+    // text: "Watch movies, TV shows and more with Netflix on PS5, streaming the latest original programming.",
     profile: true,
     href: "/profile", 
 
   },
-  editProfile: {
-    cover: coverSpotify,
-    label: "izmeni profil",
-    bg: charWitcher,
-    title: "Spotify",
-    href: "/edit-profile", 
-  }
+  // editProfile: {
+  //   cover: coverSpotify,
+  //   label: "izmeni profil",
+  //   bg: charWitcher,
+  //   title: "Spotify",
+  //   href: "/edit-profile", 
+  // }
 };
 
 export const Rent = {
