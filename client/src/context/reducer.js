@@ -165,7 +165,7 @@ const reducer = (state, action) => {
       isLoading: false,
       rents: action.payload.rents,
       totalRents: action.payload.totalRents,
-      numOfPages: action.payload.numOfPages,
+      // numOfPages: action.payload.numOfPages,
     }
   }
   if (action.type === SET_EDIT_RENT) {

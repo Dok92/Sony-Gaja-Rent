@@ -22,7 +22,7 @@ const RentSchema = new Schema(
       type: String,
       required: [true, 'Molimo unesite mesto'],
     },
-    projector: {
+    projector: { 
       type: String,
       default: 'Ne',      
     },

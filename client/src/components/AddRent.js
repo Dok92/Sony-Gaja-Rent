@@ -167,7 +167,7 @@ const AddRent = () => {
         handleChange={handleRentInput}
       />
       <div className='btn-container'>
-        <h4>Iznos: {price}</h4>
+        <h4>Iznos: {price} dinara</h4>
         <button
           type='submit'
           className='ps5-btn ps5-btn-lg ps5-btn-primary'

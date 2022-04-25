@@ -57,22 +57,19 @@ const initialState = {
   controllersOptions: ['', 2, 4],
   rentLocation: '', // NOTE default for location - old jobType
   rentLocationOptions: ['', 'Novi Sad', 'Veternik', 'Futog', 'Sremska Kamenica', 'Petrovaradin'], // jobTypeOptions
-  // TODO select - broj dzojstika
-  // TODO select - sa projektorom (select ili boolean)
   projector: 'Ne',
   projectorOptions: ['Ne', '1 dan', '2 dana', '3 dana', '4 dana'], 
-  // TODO row - napomena
   note: '',
   price: 0,
   rents: [],
   totalRents: 0,
-  numOfPages: 1,
-  page: 1,
+  // numOfPages: 1,
+  // page: 1,
   // stats: {},
   // monthlyApplications: [],
-  search: '',
-  searchStatus: 'all',
-  searchType: 'all',
+  // search: '',
+  // searchConsole: 'sve',
+  // searchType: 'all',
   sort: 'latest',
   sortOptions: ['latest', 'oldest', 'a-z', 'z-a'],
 }
@@ -217,22 +214,18 @@ const AppProvider = ({ children }) => {
   }
 
   const getRents = async () => {
-    const { page, search, searchStatus, searchType, sort } = state
+    const { sort } = state
 
-    let url = `/rents?page=${page}&status=${searchStatus}&rentType=${searchType}&sort=${sort}`
-    if (search) {
-      url = url + `&search=${search}`
-    }
+    let url = `/rents?sort=${sort}`
     dispatch({ type: GET_RENTS_BEGIN })
     try {
       const { data } = await authFetch(url)
-      const { rents, totalRents, numOfPages } = data
+      const { rents, totalRents } = data
       dispatch({
         type: GET_RENTS_SUCCESS,
         payload: {
           rents,
           totalRents,
-          numOfPages,
         },
       })
     } catch (error) {
@@ -275,22 +268,6 @@ const AppProvider = ({ children }) => {
   //   } catch (error) {
   //     logoutUser()
   //   }
-  // }
-  // const showStats = async () => {
-  //   dispatch({ type: SHOW_STATS_BEGIN })
-  //   try {
-  //     const { data } = await authFetch('/rents/stats')
-  //     dispatch({
-  //       type: SHOW_STATS_SUCCESS,
-  //       payload: {
-  //         stats: data.defaultStats,
-  //         monthlyApplications: data.monthlyApplications,
-  //       },
-  //     })
-  //   } catch (error) {
-  //     logoutUser()
-  //   }
-  //   clearAlert()
   // }
 
   // const clearFilters = () => {

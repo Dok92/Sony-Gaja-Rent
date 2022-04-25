@@ -19,7 +19,7 @@ class Top extends Component {
   componentDidMount() {
     this.handleClickLeft(0);
     this.tick();
-    this.clock = setInterval(() => this.tick(), 30000);
+    this.clock = setInterval(() => this.tick(), 5000);
   }
 
   componentWillUnmount() {

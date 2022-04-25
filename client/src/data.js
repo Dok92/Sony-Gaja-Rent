@@ -12,9 +12,11 @@ import charWitcher from "./assets/char-witcherFront-darker.jpg";
 import charWitcherDarkBottom from "./assets/char-witcherFront-dark-bottom.jpg";
 import ps4Back from "./assets/ps4/ps4-accessories.jpg";
 // import ps4BackWhiteShort from "./assets/ps4/ps4-white-bg-short.webp";
-import ps4Cover from "./assets/ps4/ps4-cover.png";
+// import ps4Cover from "./assets/ps4/ps4-cover.png";
+import ps4Cover from "./assets/ps4/ps4-cover-60.png";
 import ps5Back from "./assets/ps5/playstation-5-background.webp"; 
-import ps5Cover from "./assets/ps5/ps5-cover.png";
+// import ps5Cover from "./assets/ps5/ps5-cover.png";
+import ps5Cover from "./assets/ps5/ps5-60.png";
 // import one from "./assets/tryout/spidy-short.jpg";
 // import oneLong from "./assets/tryout/spidy-long.jpg";
 import two from "./assets/tryout/marvels-spider-man-miles-morales-photo-mode-playstation-5-3840x2160-3631.jpg"

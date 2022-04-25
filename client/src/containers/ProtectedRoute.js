@@ -5,7 +5,6 @@ import { Navigate, useLocation } from 'react-router-dom'
 const ProtectedRoute = ({ children }) => {
   const location = useLocation();
   const { user } = useAppContext()
-  // const user = true
   if (!user && location.pathname !== '/') {
     return <Navigate to='/' />
   }
