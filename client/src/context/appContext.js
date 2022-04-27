@@ -70,8 +70,8 @@ const initialState = {
   // search: '',
   // searchConsole: 'sve',
   // searchType: 'all',
-  sort: 'latest',
-  sortOptions: ['latest', 'oldest', 'a-z', 'z-a'],
+  sort: 'novije',
+  sortOptions: ['novije', 'starije', 'cena niska', 'cena visoka'],
 }
 
 const AppContext = React.createContext()

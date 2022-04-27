@@ -19,7 +19,7 @@ import ps5Back from "./assets/ps5/playstation-5-background.webp";
 import ps5Cover from "./assets/ps5/ps5-60.png";
 // import one from "./assets/tryout/spidy-short.jpg";
 // import oneLong from "./assets/tryout/spidy-long.jpg";
-import two from "./assets/tryout/marvels-spider-man-miles-morales-photo-mode-playstation-5-3840x2160-3631.jpg"
+import two from "./assets/tryout/miles-morales.jpg"
 // import three from "./assets/tryout/mortal-kombat-2021-movies-scorpion-sub-zero-black-2560x1440-4712.jpg"
 import Avatar from "./components/Avatar";
 
@@ -31,7 +31,6 @@ export const Profile = {
     bg: charWitcherDarkBottom,
     // title: "Profil",
     // text: "Watch movies, TV shows and more with Netflix on PS5, streaming the latest original programming.",
-    profile: true,
     href: "/profile", 
 
   },
