@@ -133,28 +133,28 @@ const AddRent = () => {
     <div className='form-center'>  
       <FormRowSelect
         name='days'
-        labelText='Broj dana'        
+        labelText='Broj dana:'        
         value={days}
         handleChange={handleRentInput}
         list={location === '/ps4' ? daysOptionsPs4 : daysOptionsPs5}
       />
         <FormRowSelect
           name='controllers'
-          labelText='Broj džojstika'
+          labelText='Broj džojstika:'
           value={controllers}
           handleChange={handleRentInput}
           list={controllersOptions}
         />
       <FormRowSelect
         name='rentLocation'
-        labelText='Mesto'
+        labelText='Mesto:'
         value={rentLocation}
         handleChange={handleRentInput}
         list={rentLocationOptions}
       />
       <FormRowSelect
         name='projector'
-        labelText='Sa projektorom?'
+        labelText='Sa projektorom:'
         value={projector}
         handleChange={handleRentInput}
         list={projectorOptions}

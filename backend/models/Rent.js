@@ -2,7 +2,6 @@ import mongoose from 'mongoose'
 
 const { Schema } = mongoose;
 
-// TODO - add console, controlers, numOfDays, projector(boolean), price, date, 
 const RentSchema = new Schema(
   {
     console: {
@@ -11,8 +10,6 @@ const RentSchema = new Schema(
     days: { 
       type: Number || '',
       required: [true, 'Molimo unesite broj dana'],
-      // enum: ['full-time', 'part-time', 'remote', 'internship'],
-      // default: 'full-time',
     },
     controllers: {
       type: Number || '',

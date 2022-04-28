@@ -230,7 +230,7 @@ const reducer = (state, action) => {
       search: '',
       searchStatus: 'all',
       searchType: 'all',
-      sort: 'latest',
+      sort: 'novije',
     }
   }
   if (action.type === CHANGE_PAGE) {
