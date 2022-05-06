@@ -29,9 +29,12 @@
     font-weight: 300;
   }
 
-  // p {
-  //   max-width: 480px;
-  // }
+  p {
+    width: 30%;
+     @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
 
   // img {
   //   width: 100%;

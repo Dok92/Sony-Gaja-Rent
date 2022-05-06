@@ -48,18 +48,17 @@ export const Rent = {
     cover: rent,
     label: "Iznajmljivanje",
     bg: two,
-    title: "Be greater. Be yourself.",
-    text:
-      "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.", 
+    title: "Budi dosledan. Iznajmljuj PS kod nas.",
+    text: "Budi naša verna mušterija, osvoji trofeje i ostvari dodatne pogodnosti, popuste i ponude. Poruci dva puta kod nas i osvoji bronzani trofej nakon kojeg te ceka 20% popusta na sledece iznajmljivanje.", 
     href: "/rent", 
-    pricing: true
+    // pricing: true
   },  
   ps5: {
     cover: ps5Cover,
     label: "PS-5",
     bg: ps5Back,
-    title: "PS-5",
-    text: "Hunt for loot and don legendary armor sets in a new looter-slasher for PlayStation 5.",
+    title: "Playstation 5",
+    text: "Uz svaku konzolu ide 15+ igara. U slucaju da Vas neka igra posebno zanima, slobodno nam naglasite.",
     // order5: true,
     renting: true,
     href: "/ps5" 
@@ -68,8 +67,8 @@ export const Rent = {
     cover: ps4Cover,
     label: "PS-4",
     bg: ps4Back,
-    title: "PS-4",
-    text: "Take Sackboy on an epic 3D platordering adventure with your friends.",
+    title: "Playstation 4",
+    text: "Iznajmljivanje sony ps pro sa ps + za online igranje",
     // order4: true,
     renting: true,
     href: "/ps4" 

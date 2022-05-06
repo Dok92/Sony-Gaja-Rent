@@ -34,13 +34,14 @@ a {
 }
 
 p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; 
 }
 
-input {
-  padding-left: 1rem;
-  // padding-right: 1rem;
-}
+
+
+// input {
+//   padding-left: 1rem;
+// }
 
 select {
   background: transparent;
@@ -64,10 +65,33 @@ img.plus {
 img.trophy {
   width: 50px;
   opacity: 0.4;  
+  padding: 8px;
 }
+
 
 .form-add-rent {
   margin-bottom: 5rem;
+  & select {
+    font-size: 16px;
+  }
+}
+
+.form-center :nth-child(5){
+  display: flex!important;
+
+  & label {
+    margin-right: 5px;
+  }
+  
+  & input {
+    margin-top: 0!important;
+    padding-bottom: 0;
+    width: 9rem;
+  }
+}
+
+#phone {
+  display: flex;
 }
 
 
@@ -253,7 +277,7 @@ img.trophy {
   @media (min-width: 992px) {
     margin-left: auto;
     margin-right: auto;
-    max-width: 1200px;
+    max-width: 1500px;
   }
 }
 

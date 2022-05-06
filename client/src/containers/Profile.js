@@ -53,9 +53,9 @@ const Profile = () => {
   return (
     <div>
       <form className='sort'>
-        <h4>search form</h4>
+        <h4>Rentiranja</h4>
         <div className='sort-center'>
-          <FormRowSelect labelText="sortiraj:" name='sort' value={sort} handleChange={handleSearch} list={sortOptions} />
+          <FormRowSelect labelText="so                          rtiraj:" name='sort' value={sort} handleChange={handleSearch} list={sortOptions} />
           {/* <button
             className='btn btn-block btn-danger'
             // disabled={isLoading}
@@ -68,11 +68,11 @@ const Profile = () => {
       <table>
         <thead>
           <tr>
-            <td>Renta</td>
+            <td>Konzola</td>
             <td>Dana</td>
             <td>Cena</td>
             <td>Datum</td>
-          </tr>
+          </tr> 
         </thead>
       </table>
       <div className='tbl-content'>

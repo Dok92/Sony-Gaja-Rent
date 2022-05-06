@@ -65,7 +65,7 @@ class Top extends Component {
 
   // Open modal upon clicking the profile icon
   handleClickRight(type, modalContent) {
-    if (type !== "clock") {
+    if (type !== "sat") {
       this.props.onClickModal(modalContent);
     }
   }
@@ -79,14 +79,14 @@ class Top extends Component {
         modalContent: <Social />,
       },
       {
-        label: "clock",
+        label: "sat",
         // url: "#clock",
-        content: "clock",
-        modalContent: (
-          <div className="ps5-modal-dialog">
-            <h2>Clock</h2>
-          </div>
-        ),
+        content: "sat",
+        // modalContent: (
+        //   <div className="ps5-modal-dialog">
+        //     <h2>Clock</h2>
+        //   </div>
+        // ),
       },
     ];
 
@@ -111,7 +111,7 @@ class Top extends Component {
         </ul>
         <ul>          
           {menuSecondary.map((item, i) => {
-            const clock = item.label === "clock";
+            const clock = item.label === "sat";
             return (
               <li key={i}>
                 <a

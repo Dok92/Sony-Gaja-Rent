@@ -59,6 +59,7 @@ const initialState = {
   rentLocationOptions: ['', 'Novi Sad', 'Veternik', 'Futog', 'Sremska Kamenica', 'Petrovaradin'], // jobTypeOptions
   projector: 'Ne',
   projectorOptions: ['Ne', '1 dan', '2 dana', '3 dana', '4 dana'], 
+  phone: '',
   note: '',
   price: 0,
   rents: [],
@@ -191,13 +192,14 @@ const AppProvider = ({ children }) => {
   const createRent = async () => {
     dispatch({ type: CREATE_RENT_BEGIN })
     try {
-      const { console, days, controllers, rentLocation, projector, note, price } = state
+      const { console, days, controllers, rentLocation, projector, phone, note, price } = state
       await authFetch.post('/rents', {
         console,
         days,
         controllers,
         rentLocation,
         projector,
+        phone,
         note,
         price
       })

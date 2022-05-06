@@ -33,6 +33,8 @@
         width: 25px;
       }
 
+      
+
       svg {
         width: 20px;
         height: 20px;
@@ -43,6 +45,8 @@
       width: 70vw;
       max-width: 400px;
       padding: 1rem;
+      margin-top: 1rem;
+      gap: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -51,6 +55,44 @@
       @media (min-width: 576px) {
         padding: $margin-x;
       }
+
+      img.avatar {
+        width: 5rem;
+      }
+
+      .avatar-plus {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & img {
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      .edit-logout {
+        display: flex;
+        align-items: center;
+        justify-content: center;  
+        text-align: center; 
+        & svg {
+          width: 30px;
+          height: 30px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        & .edit {
+          margin-right: 1rem;        
+        }
+      }
+
+      .line {
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+        margin-bottom: 1rem;
+      }
+
     }
     .ps5-modal-image,
     .ps5-modal-btn {

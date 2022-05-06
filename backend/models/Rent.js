@@ -26,6 +26,9 @@ const RentSchema = new Schema(
     price: {
       type: Number
     },
+    phone: {
+      type: String
+    },
     note: {
       type: String
     },

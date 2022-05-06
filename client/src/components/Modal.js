@@ -12,7 +12,7 @@ class Modal extends Component {
           {modalContent}
           <a
             href="#modal-close"
-            title="Close"
+            title="Zatvori"
             className="ps5-btn ps5-btn-mono ps5-modal-btn"
             onClick={() => this.props.onClick()}
           >
