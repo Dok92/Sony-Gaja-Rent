@@ -55,7 +55,7 @@ const Profile = () => {
       <form className='sort'>
         <h4>Rentiranja</h4>
         <div className='sort-center'>
-          <FormRowSelect labelText="so                          rtiraj:" name='sort' value={sort} handleChange={handleSearch} list={sortOptions} />
+          <FormRowSelect labelText="sortiraj:" name='sort' value={sort} handleChange={handleSearch} list={sortOptions} />
           {/* <button
             className='btn btn-block btn-danger'
             // disabled={isLoading}

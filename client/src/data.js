@@ -2,10 +2,11 @@ import rent from "./assets/cover-store.png";
 // import coverNetflix from "./assets/cover-netflix.png";
 // import avatar from "./assets/profile-avatar.jfif";
 import avatar from "./assets/user-1.jpg";
-import coverSpotify from "./assets/cover-spotify.png";
+import editUser from "./assets/edit-user.png";
 // import coverDisney from "./assets/cover-disney.png";
 // import allGames from "./assets/all-games.jpg";
 import buttonsBlack from "./assets/buttons-black.jpg";
+import platinumCover from "./assets//trophies//platinum-cover.png";
 // import charSkyrim from "./assets/char-skyrimFront.jpg";
 // import charWitcher from "./assets/char-witcherFront.jpg";
 import charWitcher from "./assets/char-witcherFront-darker.jpg";
@@ -26,21 +27,22 @@ import Avatar from "./components/Avatar";
 export const Profile = {
   profile: {
     cover: avatar,
-    // label: <Avatar />,
     profile: true,
     bg: charWitcherDarkBottom,
-    // title: "Profil",
-    // text: "Watch movies, TV shows and more with Netflix on PS5, streaming the latest original programming.",
     href: "/profile", 
-
   },
-  // editProfile: {
-  //   cover: coverSpotify,
-  //   label: "izmeni profil",
-  //   bg: charWitcher,
-  //   title: "Spotify",
-  //   href: "/edit-profile", 
-  // }
+  editProfile: {
+    cover: editUser,
+    label: "izmeni profil",
+    bg: buttonsBlack,
+    href: "/edit-profile", 
+  },
+  trophies: {
+    cover: platinumCover,
+    label: "trofeji",
+    bg: buttonsBlack,
+    href: "/trophies", 
+  }
 };
 
 export const Rent = {

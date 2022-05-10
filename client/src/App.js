@@ -22,6 +22,7 @@ function App() {
         <Route path='/ps4' element={< Page />} />
         <Route path='/profile' element={< Page />} />
         <Route path='/edit-profile' element={< Page />} />
+        <Route path='/trophies' element={< Page />} />
         <Route path='*' element={<Error />} /> 
       </Routes>  
     </BrowserRouter>

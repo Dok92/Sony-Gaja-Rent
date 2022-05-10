@@ -24,8 +24,20 @@
       gap: $margin-x;
     }
 
+    #user-active::before {
+        content: "";
+        position: absolute;      
+        right: 3px;
+        bottom: 6px;
+        width: 10px;
+        height: 10px;
+        background-color: rgb(44, 255, 97);
+        border-radius: 50%;
+    }
+
     img {
       width: 32px;
+      border-radius: 50%;
     }
 
     i {

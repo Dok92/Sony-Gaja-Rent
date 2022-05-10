@@ -5,7 +5,7 @@ import { bronzeTrophy, silverTrophy, goldTrophy, platinumTrophy } from "../asset
 import { FaUserEdit, FaLocationArrow, FaPhone } from 'react-icons/fa';
 import {FiLogOut} from "react-icons/fi";
 import plus from '../assets/plus.png'
-import avatar from '../assets/user-1.png';
+import avatar from '../assets/user-1.jpg';
 
 const Social = () => {
   // const [ showLogout, setShowLogout ] = useState(false);
@@ -13,8 +13,8 @@ const Social = () => {
 
   return (
     <div className='ps5-modal-dialog'>
-      <img src={avatar} className="avatar"></img> 
-      <div className="avatar-plus">
+      <div className="user-active"><img src={avatar} className="avatar"></img></div>
+    <div className="avatar-plus">
         <h2>{user.name} </h2>
         <img src={plus} className="plus"></img>        
       </div>    
@@ -24,6 +24,7 @@ const Social = () => {
         <img className="trophy trophy-gold" src={goldTrophy} alt='' />
         <img className="trophy trophy-platinum" src={platinumTrophy} alt='' />
       </div>
+        <div className="line"></div>
       <div className="edit-logout">
         {/* <div className="edit">
           <FaUserEdit/>       
@@ -34,7 +35,6 @@ const Social = () => {
           <p>izloguj se</p>
         </div>
       </div>
-      {/* <div className="line"></div> */}
       {/* <h2><FaPhone />062252554</h2> */}
       {/* <h2>{user.location}<FaLocationArrow />Novi Sad</h2> */}
     </div>

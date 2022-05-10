@@ -56,8 +56,23 @@
         padding: $margin-x;
       }
 
+      .user-active {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;      
+          right: 2px;
+          bottom: 10px;
+          width: 15px;
+          height: 15px;
+          background-color: rgb(44, 255, 97);
+          border-radius: 50%;
+        }
+      }
+
       img.avatar {
         width: 5rem;
+        border-radius: 50%;
       }
 
       .avatar-plus {

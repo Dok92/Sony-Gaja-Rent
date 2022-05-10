@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Social from "./Social.js";
-import userImg from "../assets/user-1.png";
+import userImg from "../assets/user-1.jpg";
 import "./Top.scss";
 import { menuPrimary } from "../topNavigation.js";
 
@@ -75,7 +75,7 @@ class Top extends Component {
       {
         // label: "user",
         url: "#user",
-        content: <img src={userImg} alt="" />,
+        content: <div id="user-active"><img src={userImg} alt="" /></div>,
         modalContent: <Social />,
       },
       {

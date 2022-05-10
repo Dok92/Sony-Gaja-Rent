@@ -62,12 +62,19 @@ img.plus {
   margin-left: 10px;
 }
 
-img.trophy {
+img.trophy { 
   width: 50px;
   opacity: 0.4;  
   padding: 8px;
 }
 
+img.trophy-bronze {
+  opacity: 1;  
+}
+
+img.trophy-silver {
+  opacity: 1;  
+}
 
 .form-add-rent {
   margin-bottom: 5rem;
@@ -103,9 +110,7 @@ img.trophy {
 // }
 
 
-// img.trophy-bronze {
-//   opacity: 1;  
-// }
+
 
 /**/
 
