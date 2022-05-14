@@ -1,5 +1,3 @@
-import { FaAngleDown } from "react-icons/fa"
-
 const FormRowSelect = ({ labelText, name, value, handleChange, list }) => {
   return (
     <div className='form-row'>

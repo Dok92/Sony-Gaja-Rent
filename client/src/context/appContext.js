@@ -20,14 +20,6 @@ import {
   CREATE_RENT_ERROR,
   GET_RENTS_BEGIN,
   GET_RENTS_SUCCESS,
-  // SET_EDIT_RENT,
-  // DELETE_RENT_BEGIN,
-  // EDIT_RENT_BEGIN,
-  // EDIT_RENT_SUCCESS,
-  // EDIT_RENT_ERROR,
-  // SHOW_STATS_BEGIN,
-  // SHOW_STATS_SUCCESS,
-  // CLEAR_FILTERS,
   CHANGE_PAGE,
 } from './actions'
 
@@ -43,20 +35,14 @@ const initialState = {
   user: user ? JSON.parse(user) : null,
   token: token,
   userLocation: userLocation || '',
-  // showSidebar: false,
-  // isEditing: false,
-  // editRentId: '',
-  // position: '',
-  // company: '',
-  // jobLocation: userLocation || '',
   console: '',
-  days: 0, // NOTE default for status options
-  daysOptionsPs4: ['', 1, 2, 3, 4, 5, 6, 7], // statusOptions
-  daysOptionsPs5: ['', 1, 2, 3], // statusOptions  
+  days: 0, 
+  daysOptionsPs4: ['', 1, 2, 3, 4, 5, 6, 7], 
+  daysOptionsPs5: ['', 1, 2, 3],  
   controllers: 0,
   controllersOptions: ['', 2, 4],
-  rentLocation: '', // NOTE default for location - old jobType
-  rentLocationOptions: ['', 'Novi Sad', 'Veternik', 'Futog', 'Sremska Kamenica', 'Petrovaradin'], // jobTypeOptions
+  rentLocation: '',
+  rentLocationOptions: ['', 'Novi Sad', 'Veternik', 'Futog', 'Sremska Kamenica', 'Petrovaradin'],
   projector: 'Ne',
   projectorOptions: ['Ne', '1 dan', '2 dana', '3 dana', '4 dana'], 
   phone: '',
@@ -64,13 +50,6 @@ const initialState = {
   price: 0,
   rents: [],
   totalRents: 0,
-  // numOfPages: 1,
-  // page: 1,
-  // stats: {},
-  // monthlyApplications: [],
-  // search: '',
-  // searchConsole: 'sve',
-  // searchType: 'all',
   sort: 'novije',
   sortOptions: ['novije', 'starije', 'cena niska', 'cena visoka'],
 }
@@ -102,7 +81,6 @@ const AppProvider = ({ children }) => {
       return response
     },
     (error) => {
-      // console.log(error.response)
       if (error.response.status === 401) {
         logoutUser()
       }
@@ -236,46 +214,6 @@ const AppProvider = ({ children }) => {
     clearAlert()
   }
 
-  // const setEditRent = (id) => {
-  //   dispatch({ type: SET_EDIT_RENT, payload: { id } })
-  // }
-  // const editRent = async () => {
-  //   dispatch({ type: EDIT_RENT_BEGIN })
-
-  //   try {
-  //     const { position, company, rentLocation, rentType, status } = state
-  //     await authFetch.patch(`/rents/${state.editRentId}`, {
-  //       company,
-  //       position,
-  //       rentLocation,
-  //       rentType,
-  //       status,
-  //     })
-  //     dispatch({ type: EDIT_RENT_SUCCESS })
-  //     // dispatch({ type: CLEAR_VALUES })
-  //   } catch (error) {
-  //     if (error.response.status === 401) return
-  //     dispatch({
-  //       type: EDIT_RENT_ERROR,
-  //       payload: { msg: error.response.data.msg },
-  //     })
-  //   }
-  //   clearAlert()
-  // }
-  // const deleteRent = async (rentId) => {
-  //   dispatch({ type: DELETE_RENT_BEGIN })
-  //   try {
-  //     await authFetch.delete(`/rents/${rentId}`)
-  //     getRents()
-  //   } catch (error) {
-  //     logoutUser()
-  //   }
-  // }
-
-  // const clearFilters = () => {
-  //   dispatch({ type: CLEAR_FILTERS })
-  // }
-
   const changePage = (page) => {
     dispatch({ type: CHANGE_PAGE, payload: { page } })
   }
@@ -293,11 +231,6 @@ const AppProvider = ({ children }) => {
         clearValues,
         createRent,
         getRents,
-        // setEditRent,
-        // deleteRent,
-        // editRent,
-        // showStats,
-        // clearFilters,
         changePage,
       }}
     >

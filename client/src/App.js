@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ProtectedRoute from './containers/ProtectedRoute';
-import Main from './containers/Main';
-import Error from './containers/Error';
+import ProtectedRoute from './ProtectedRoute';
+import Main from './pages/Main';
+import Error from './pages/Error';
 
 const Page = () => {
   return (

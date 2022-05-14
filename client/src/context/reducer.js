@@ -21,8 +21,6 @@ import {
   EDIT_RENT_BEGIN,
   EDIT_RENT_SUCCESS,
   EDIT_RENT_ERROR,
-  // SHOW_STATS_BEGIN,
-  // SHOW_STATS_SUCCESS,
   CLEAR_FILTERS,
   CHANGE_PAGE,
 } from './actions'
@@ -165,7 +163,6 @@ const reducer = (state, action) => {
       isLoading: false,
       rents: action.payload.rents,
       totalRents: action.payload.totalRents,
-      // numOfPages: action.payload.numOfPages,
     }
   }
   if (action.type === SET_EDIT_RENT) {
@@ -209,21 +206,6 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     }
   }
-  // if (action.type === SHOW_STATS_BEGIN) {
-  //   return {
-  //     ...state,
-  //     isLoading: true,
-  //     showAlert: false,
-  //   }
-  // }
-  // if (action.type === SHOW_STATS_SUCCESS) {
-  //   return {
-  //     ...state,
-  //     isLoading: false,
-  //     stats: action.payload.stats,
-  //     monthlyApplications: action.payload.monthlyApplications,
-  //   }
-  // }
   if (action.type === CLEAR_FILTERS) {
     return {
       ...state,
