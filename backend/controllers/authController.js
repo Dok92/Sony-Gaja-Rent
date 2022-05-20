@@ -1,7 +1,7 @@
 import User from "../models/User.js"
 import { StatusCodes } from "http-status-codes"
-import 'express-async-errors'
 import { BadRequestError, UnAuthenticatedError } from "../errors/index.js"
+import 'express-async-errors'
 
 const register = async (req, res) => {
     const { name, email, password } = req.body
@@ -22,7 +22,6 @@ const register = async (req, res) => {
         user: {
             name: user.name,
             email: user.email,
-            // lastName: user.lastName,
             location: user.location
         }, 
         token, 
@@ -53,24 +52,23 @@ const login = async (req, res) => {
     res.status(StatusCodes.OK).json({user, token, location: user.location})
 }
 
-const updateUser = async (req, res) => {
-    const { email, name, lastName, location } = req.body
-    if (!email || !name || !location) {
-      throw new BadRequestError('Molimo popunite sva polja')
-    }
-    const user = await User.findOne({ _id: req.user.userId })
+// const updateUser = async (req, res) => {
+//     const { email, name, location } = req.body
+//     if (!email || !name || !location) {
+//       throw new BadRequestError('Molimo popunite sva polja')
+//     }
+//     const user = await User.findOne({ _id: req.user.userId })
   
-    user.email = email 
-    user.name = name
-    // user.lastName = lastName
-    user.location = location
+//     user.email = email 
+//     user.name = name
+//     user.location = location
   
-    await user.save()
+//     await user.save()
   
-    const token = user.createJWT()
+//     const token = user.createJWT()
   
-    res.status(StatusCodes.OK).json({ user, token, location: user.location }) 
-}
+//     res.status(StatusCodes.OK).json({ user, token, location: user.location }) 
+// }
 
 // const deleteUser = async (req, res) => {
 //     const user = await User.findOne({ _id: req.user.userId })
@@ -78,4 +76,4 @@ const updateUser = async (req, res) => {
 //     res.status(StatusCodes.OK).json({ message: 'User deleted' })
 // }
 
-export { register, login, updateUser }
+export { register, login }

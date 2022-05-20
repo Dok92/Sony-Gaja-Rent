@@ -21,8 +21,8 @@ export const menuPrimary = [
     url: "/profile",
     content: [
       { app: Profile.profile },
+      { app: Profile.trophies },
       // { app: Profile.editProfile },
-      // { app: Profile.trophies },
     ], 
   },
 ];

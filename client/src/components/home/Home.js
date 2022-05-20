@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Canvas from "./Canvas.js";
 import Register from "./Register.js";
 import "./Home.scss";
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +10,6 @@ class Home extends Component {
       animation: true, 
     }; 
   }
-
   
   render() {
     return (

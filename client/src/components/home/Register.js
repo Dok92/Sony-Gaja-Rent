@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FormRow from "../FormRow";
 import Alert from "../Alert";
 import { useAppContext } from "../../context/appContext";
-import { useNavigate } from "react-router-dom";
 import "./Register.scss";
 
 const initialState = {
@@ -13,9 +12,8 @@ const initialState = {
 };
 
 const Register = () => {
-  const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
-  const { user, isLoading, showAlert, displayAlert, setupUser } = useAppContext();
+  const { isLoading, showAlert, displayAlert, setupUser } = useAppContext();
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -41,14 +39,6 @@ const Register = () => {
       setupUser({ currentUser, endPoint: "register", alertText: "Uspešno kreiran nalog!" });
     }
   };
-
-  useEffect(() => {
-    if (user) {
-      setTimeout(() => {
-        navigate("/rent");
-      }, 1000);
-    }
-  }, [user, navigate]);
 
   return (
     <>

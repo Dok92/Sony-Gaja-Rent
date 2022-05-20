@@ -4,8 +4,8 @@ import { CSSTransition } from "react-transition-group";
 import Home from "../components/home/Home.js";
 import Background from "../components/Background.js";
 import Top from "../components/topMenu/Top.js";
-import Menu from "../components/underMenu/Menu.js";
-import Preview from "../components/viewCenter/Preview.js";
+import Menu from "../components/slideMenu/Menu.js";
+import Preview from "../components/main/Preview.js";
 import Modal from "../components/topMenu/Modal.js";
 
 import "./Main.scss";

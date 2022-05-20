@@ -27,13 +27,7 @@ const userSchema = new Schema({
     required: [true, "Please provide password"],
     minlength: 6,
     select: false,
-  },
-  // lastName: {
-  //   type: String,
-  //   trim: true,
-  //   maxlength: 20,
-  //   default: "lastName",
-  // },
+  }
 });
 
 userSchema.pre("save", async function () {

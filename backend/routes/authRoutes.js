@@ -1,6 +1,5 @@
 import express from 'express'
-import { register, login, updateUser } from '../controllers/authController.js'
-import authenticateUser from '../middleware/auth.js'
+import { register, login } from '../controllers/authController.js'
 import rateLimiter from 'express-rate-limit'
 
 const apiLimiter = rateLimiter({
@@ -13,8 +12,7 @@ const router = express.Router()
 
 router.route('/register').post(apiLimiter, register)
 router.route('/login').post(apiLimiter, login)
-router.route('/updateUser').patch(authenticateUser, updateUser)
-// TODO  - add route to delete user
+// router.route('/updateUser').patch(authenticateUser, updateUser)
 // router.route('/deleteUser').delete(deleteUser)
 
 

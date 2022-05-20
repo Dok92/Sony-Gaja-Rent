@@ -6,6 +6,8 @@ import ps4Cover from "./assets/ps4/ps4-cover-60.png";
 import ps5Bg from "./assets/ps5/playstation-5-background.webp"; 
 import ps5Cover from "./assets/ps5/ps5-60.png";
 import rentBg from "./assets/miles-morales.jpg"
+import platinumCover from "./assets/trophies/platinum-cover.png";
+import buttonsBlack from "./assets/buttons-black.jpg";
 
 export const Profile = {
   profile: {
@@ -14,18 +16,18 @@ export const Profile = {
     bg: charWitcherDarkBottom,
     href: "/profile", 
   },
+  trophies: {
+    cover: platinumCover,
+    label: "trofeji",
+    bg: buttonsBlack,
+    href: "/trophies", 
+  },
   // editProfile: {
   //   cover: editUser,
   //   label: "izmeni profil",
   //   bg: buttonsBlack,
   //   href: "/edit-profile", 
   // },
-  // trophies: {
-  //   cover: platinumCover,
-  //   label: "trofeji",
-  //   bg: buttonsBlack,
-  //   href: "/trophies", 
-  // }
 };
 
 export const Rent = {
