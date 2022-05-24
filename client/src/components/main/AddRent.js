@@ -151,18 +151,18 @@ const AddRent = () => {
           handleChange={handleRentInput}
           list={projectorOptions}
         />
-        <FormRow
-          labelText='Kontakt telefon:'
-          name='phone'
-          value={phone}
-          handleChange={handleRentInput}
-        />
-        <FormRow
-          labelText='Napomena:'
-          name='note'
-          value={note}
-          handleChange={handleRentInput}
-        />
+          <FormRow
+            labelText='Kontakt telefon:'
+            name='phone'
+            value={phone}
+            handleChange={handleRentInput}
+          />
+          <FormRow
+            labelText='Napomena:'
+            name='note'
+            value={note}
+            handleChange={handleRentInput}
+          />
         <div className='btn-container'>
           <h4>Iznos: {price} dinara</h4>
           <button

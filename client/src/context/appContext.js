@@ -115,14 +115,16 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SETUP_USER_BEGIN })
     try {
       const { data } = await axios.post(`/api/v1/auth/${endPoint}`, currentUser)
-
       const { user, token, location } = data
+
       dispatch({
         type: SETUP_USER_SUCCESS,
         payload: { user, token, location, alertText },
       })
+
       addUserToLocalStorage({ user, token, location })
-    } catch (error) {
+    } 
+    catch (error) {
       dispatch({
         type: SETUP_USER_ERROR,
         payload: { msg: error.response.data.msg },
@@ -130,10 +132,6 @@ const AppProvider = ({ children }) => {
     }
     clearAlert()
   }
-  const toggleSidebar = () => {
-    dispatch({ type: TOGGLE_SIDEBAR })
-  }
-
   const logoutUser = () => {
     dispatch({ type: LOGOUT_USER })
     removeUserFromLocalStorage()
@@ -224,7 +222,6 @@ const AppProvider = ({ children }) => {
         ...state,
         displayAlert,
         setupUser,
-        toggleSidebar,
         logoutUser,
         updateUser,
         handleChange,
