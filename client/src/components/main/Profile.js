@@ -28,7 +28,7 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <div>     
       <form className='sort'>
         <h4>Rentiranja</h4>
         <div className='sort-center'>

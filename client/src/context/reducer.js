@@ -16,13 +16,6 @@ import {
   CREATE_RENT_ERROR,
   GET_RENTS_BEGIN,
   GET_RENTS_SUCCESS,
-  SET_EDIT_RENT,
-  DELETE_RENT_BEGIN,
-  EDIT_RENT_BEGIN,
-  EDIT_RENT_SUCCESS,
-  EDIT_RENT_ERROR,
-  CLEAR_FILTERS,
-  CHANGE_PAGE,
 } from './actions'
 
 import { initialState } from './appContext'
@@ -163,60 +156,8 @@ const reducer = (state, action) => {
       isLoading: false,
       rents: action.payload.rents,
       totalRents: action.payload.totalRents,
+      totalSpent: action.payload.totalSpent,
     }
-  }
-  if (action.type === SET_EDIT_RENT) {
-    const rent = state.rents.find((rent) => rent._id === action.payload.id)
-    const { _id, position, company, rentLocation, rentType, status } = rent
-    return {
-      ...state,
-      isEditing: true,
-      editRentId: _id,
-      position,
-      company,
-      rentLocation,
-      rentType,
-      status,
-    }
-  }
-  if (action.type === DELETE_RENT_BEGIN) {
-    return { ...state, isLoading: true }
-  }
-  if (action.type === EDIT_RENT_BEGIN) {
-    return {
-      ...state,
-      isLoading: true,
-    }
-  }
-  if (action.type === EDIT_RENT_SUCCESS) {
-    return {
-      ...state,
-      isLoading: false,
-      showAlert: true,
-      alertType: 'success',
-      alertText: 'Rent Updated!',
-    }
-  }
-  if (action.type === EDIT_RENT_ERROR) {
-    return {
-      ...state,
-      isLoading: false,
-      showAlert: true,
-      alertType: 'danger',
-      alertText: action.payload.msg,
-    }
-  }
-  if (action.type === CLEAR_FILTERS) {
-    return {
-      ...state,
-      search: '',
-      searchStatus: 'all',
-      searchType: 'all',
-      sort: 'novije',
-    }
-  }
-  if (action.type === CHANGE_PAGE) {
-    return { ...state, page: action.payload.page }
   }
   throw new Error(`no such action : ${action.type}`)
 }

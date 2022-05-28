@@ -54,10 +54,10 @@ const getAllRents = async (req, res) => {
   }
 
   const rents = await result
-
   const totalRents = await Rent.countDocuments(queryObject)
+  const totalSpent = await rents.reduce((acc, rent) => acc + rent.price, 0)
 
-  res.status(StatusCodes.OK).json({ rents, totalRents })
+  res.status(StatusCodes.OK).json({ rents, totalRents, totalSpent })
 }
 
 

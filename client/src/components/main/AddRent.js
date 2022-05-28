@@ -22,8 +22,11 @@ const AddRent = () => {
     phone,
     note,
     price,
+    totalRents,
+    totalSpent,
     handleChange,
     createRent,
+    getRents
   } = useAppContext();
 
   const location = useLocation().pathname;
@@ -119,7 +122,14 @@ const AddRent = () => {
     handleChange({ name, value });
   };
 
+  useEffect(() => { 
+    getRents();
+  }, [price]);
+
   return (
+    <>
+     <h5>rent: {totalRents}</h5>
+     <h5>spent: {totalSpent}</h5>
     <form className='form-add-rent'>
       {showAlert && <Alert />}
       <div className='form-center'>
@@ -175,6 +185,7 @@ const AddRent = () => {
         </div>
       </div>
     </form>
+    </>
   );
 };
 export default AddRent;

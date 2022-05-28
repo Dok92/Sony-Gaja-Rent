@@ -8,7 +8,6 @@ import {
   SETUP_USER_BEGIN,
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
-  TOGGLE_SIDEBAR,
   LOGOUT_USER,
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
@@ -20,7 +19,6 @@ import {
   CREATE_RENT_ERROR,
   GET_RENTS_BEGIN,
   GET_RENTS_SUCCESS,
-  CHANGE_PAGE,
 } from './actions'
 
 const token = localStorage.getItem('token')
@@ -50,6 +48,7 @@ const initialState = {
   price: 0,
   rents: [],
   totalRents: 0,
+  totalSpent: 0,
   sort: 'novije',
   sortOptions: ['novije', 'starije', 'cena niska', 'cena visoka'],
 }
@@ -198,22 +197,19 @@ const AppProvider = ({ children }) => {
     dispatch({ type: GET_RENTS_BEGIN })
     try {
       const { data } = await authFetch(url)
-      const { rents, totalRents } = data
+      const { rents, totalRents, totalSpent } = data
       dispatch({
         type: GET_RENTS_SUCCESS,
         payload: {
           rents,
           totalRents,
+          totalSpent,
         },
       })
     } catch (error) {
       logoutUser()
     }
     clearAlert()
-  }
-
-  const changePage = (page) => {
-    dispatch({ type: CHANGE_PAGE, payload: { page } })
   }
 
   return (
@@ -228,7 +224,6 @@ const AppProvider = ({ children }) => {
         clearValues,
         createRent,
         getRents,
-        changePage,
       }}
     >
       {children}

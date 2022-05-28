@@ -27,7 +27,8 @@ const RentSchema = new Schema(
       type: Number
     },
     phone: {
-      type: String
+      type: String,
+      required: [true, 'Molimo unesite broj telefona'],
     },
     note: {
       type: String
