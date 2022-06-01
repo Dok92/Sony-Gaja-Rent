@@ -23,15 +23,18 @@ const RentSchema = new Schema(
       type: String,
       default: 'Ne',      
     },
-    price: {
-      type: Number
-    },
     phone: {
       type: String,
       required: [true, 'Molimo unesite broj telefona'],
     },
+    price: {
+      type: Number
+    },
     note: {
       type: String
+    },
+    trophy: {
+      type: [String]
     },
     createdBy: {
       type: Schema.Types.ObjectId,

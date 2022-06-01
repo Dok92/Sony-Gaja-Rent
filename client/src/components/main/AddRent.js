@@ -2,13 +2,16 @@ import { React, useEffect } from "react";
 import { useAppContext } from "../../context/appContext";
 import { useLocation } from "react-router-dom";
 import Alert from "../Alert";
+import Trophy from "../Trophy";
 import FormRow from "../FormRow";
 import FormRowSelect from "../FormRowSelect";
 
 const AddRent = () => {
   const {
     showAlert,
-    displayAlert,
+    displayAlert, 
+    trophyType,
+    trophyText,   
     console,
     days,
     daysOptionsPs4,
@@ -20,16 +23,16 @@ const AddRent = () => {
     projector,
     projectorOptions,
     phone,
-    note,
+    // note,
     price,
     totalRents,
-    totalSpent,
+    // totalSpent,
     handleChange,
     createRent,
     getRents
   } = useAppContext();
 
-  const location = useLocation().pathname;
+  const location = useLocation().pathname;  
 
   useEffect(() => {
     const psPricing = () => {
@@ -102,9 +105,29 @@ const AddRent = () => {
       return 0;
     };
 
+    const checkTrophy = () => {
+      let type = "";
+      let text = "";
+      if (totalRents === 0) {
+        type = "bronze"
+        text = "trofej prve porudžbine"
+      } else if (totalRents === 4) {
+        type = "silver"
+        text = "trofej pete porudžbine"
+      } else if (totalRents === 9) {
+        type = "gold"
+        text = "trofej desete porudžbine"
+      }  
+      return {type, text}    
+    }
+
+
+
     handleChange({ name: "console", value: location.split("/")[1] });
     handleChange({ name: "price", value: psPricing() + projectorPricing() });
-  }, [console, controllers, days, handleChange, projector, location]);
+    handleChange({ name: "trophyType", value: checkTrophy().type });
+    handleChange({ name: "trophyText", value: checkTrophy().text });
+  }, [console, controllers, days, location, projector]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -124,12 +147,13 @@ const AddRent = () => {
 
   useEffect(() => { 
     getRents();
-  }, [price]);
+  }, [days]);
 
   return (
-    <>
-     <h5>rent: {totalRents}</h5>
-     <h5>spent: {totalSpent}</h5>
+    <>   
+    <h4 id="trophy-test">This is Trophy</h4>
+    <Trophy />
+    <button>Show Toast</button>
     <form className='form-add-rent'>
       {showAlert && <Alert />}
       <div className='form-center'>
@@ -167,12 +191,12 @@ const AddRent = () => {
             value={phone}
             handleChange={handleRentInput}
           />
-          <FormRow
+          {/* <FormRow
             labelText='Napomena:'
             name='note'
             value={note}
             handleChange={handleRentInput}
-          />
+          /> */}
         <div className='btn-container'>
           <h4>Iznos: {price} dinara</h4>
           <button

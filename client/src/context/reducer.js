@@ -117,7 +117,7 @@ const reducer = (state, action) => {
       rentLocation: '',
       projector: '',
       note: '',
-      // NOTE price?
+      phone: ''
     }
 
     return {
@@ -148,7 +148,7 @@ const reducer = (state, action) => {
     }
   }
   if (action.type === GET_RENTS_BEGIN) {
-    return { ...state, isLoading: true, showAlert: false }
+    return { ...state, isLoading: true }
   }
   if (action.type === GET_RENTS_SUCCESS) {
     return {

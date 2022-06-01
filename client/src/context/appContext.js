@@ -19,6 +19,9 @@ import {
   CREATE_RENT_ERROR,
   GET_RENTS_BEGIN,
   GET_RENTS_SUCCESS,
+  // CREATE_TROPHY_SUCCESS,
+  // CREATE_TROPHY_ERROR,
+  // GET_TROPHIES_SUCCESS,
 } from './actions'
 
 const token = localStorage.getItem('token')
@@ -28,8 +31,10 @@ const userLocation = localStorage.getItem('location')
 const initialState = {
   isLoading: false,
   showAlert: false,
-  alertText: '',
   alertType: '',
+  alertText: '',
+  trophyType: '',
+  trophyText: '',
   user: user ? JSON.parse(user) : null,
   token: token,
   userLocation: userLocation || '',
@@ -167,7 +172,7 @@ const AppProvider = ({ children }) => {
   const createRent = async () => {
     dispatch({ type: CREATE_RENT_BEGIN })
     try {
-      const { console, days, controllers, rentLocation, projector, phone, note, price } = state
+      const { console, days, controllers, rentLocation, projector, phone, note, price, trophyType, trophyText } = state
       await authFetch.post('/rents', {
         console,
         days,
@@ -176,7 +181,8 @@ const AppProvider = ({ children }) => {
         projector,
         phone,
         note,
-        price
+        price,
+        trophy: [trophyType, trophyText],
       })
       dispatch({ type: CREATE_RENT_SUCCESS })
       dispatch({ type: CLEAR_VALUES })
@@ -212,6 +218,45 @@ const AppProvider = ({ children }) => {
     clearAlert()
   }
 
+  // const createTrophy = async () => {
+  //   try {
+  //     const { trophyType, trophyText } = state
+  //     await authFetch.post('/trophies', {
+  //       trophyType,
+  //       trophyText
+  //     })
+  //     dispatch({ type: CREATE_TROPHY_SUCCESS })
+  //   } catch (error) {
+  //     if (error.response.status === 401) return
+  //     dispatch({
+  //       type: CREATE_TROPHY_ERROR,
+  //       payload: { msg: error.response.data.msg },
+  //     })
+  //   }
+  // }
+
+  // const getTrophies = async () => {
+  //   const { sort } = state
+
+  //   let url = `/rents?sort=${sort}`
+  //   dispatch({ type: GET_RENTS_BEGIN })
+  //   try {
+  //     const { data } = await authFetch(url)
+  //     const { rents, totalRents, totalSpent } = data
+  //     dispatch({
+  //       type: GET_RENTS_SUCCESS,
+  //       payload: {
+  //         rents,
+  //         totalRents,
+  //         totalSpent,
+  //       },
+  //     })
+  //   } catch (error) {
+  //     logoutUser()
+  //   }
+  //   clearAlert()
+  // }
+
   return (
     <AppContext.Provider
       value={{
@@ -224,6 +269,7 @@ const AppProvider = ({ children }) => {
         clearValues,
         createRent,
         getRents,
+        // createTrophy,
       }}
     >
       {children}
