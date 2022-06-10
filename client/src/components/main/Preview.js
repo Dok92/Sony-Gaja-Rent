@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Profile from "./Profile";
 import AddRent from "./AddRent";
+import Trophies from "./Trophies";
 import "./Preview.scss";
 
 class Preview extends Component {
@@ -20,6 +21,10 @@ class Preview extends Component {
 
           {item.profile && (
             <Profile />
+          )}
+
+          {item.trophies && (
+            <Trophies />
           )}
         </div>
       </div>

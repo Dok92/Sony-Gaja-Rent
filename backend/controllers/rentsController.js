@@ -17,24 +17,11 @@ const createRent = async (req, res) => {
 }
 
 const getAllRents = async (req, res) => {
-  const { status, rentType, sort, search } = req.query
+  const { sort } = req.query
 
   const queryObject = {
     createdBy: req.user.userId,
   }
-  // add stuff based on condition
-
-  if (status && status !== 'all') {
-    queryObject.status = status
-  }
-  if (rentType && rentType !== 'all') {
-    queryObject.rentType = rentType
-  }
-  if (search) {
-    // mongo, case insensitive
-    queryObject.position = { $regex: search, $options: 'i' }
-  }
-  // NO AWAIT
 
   let result = Rent.find(queryObject)
 
@@ -60,5 +47,18 @@ const getAllRents = async (req, res) => {
   res.status(StatusCodes.OK).json({ rents, totalRents, totalSpent })
 }
 
+const getTrophyRents = async (req, res) => {
+  const queryObject = {
+    createdBy: req.user.userId,
+    // chek if trophy arr is not empty
+    trophy: { $ne: "" }
+  }
 
-export { createRent, getAllRents }
+  let result = Rent.find(queryObject)
+  const trophyRents = await result
+
+  res.status(StatusCodes.OK).json({ trophyRents })
+}
+
+
+export { createRent, getAllRents, getTrophyRents }

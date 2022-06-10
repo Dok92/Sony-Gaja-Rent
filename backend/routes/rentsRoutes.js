@@ -1,8 +1,8 @@
 import express from 'express'
 import { createRent, getAllRents } from '../controllers/rentsController.js'
 
-const router = express.Router()
+const rentsRouter = express.Router()
 
-router.route('/').post(createRent).get(getAllRents)
+rentsRouter.route('/').post(createRent).get(getAllRents)
 
-export default router
+export default rentsRouter

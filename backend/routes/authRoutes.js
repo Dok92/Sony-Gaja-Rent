@@ -8,12 +8,12 @@ const apiLimiter = rateLimiter({
   message: 'Previše zahteva sa vaše adrese, molimo pokušajte ponovo nakon 15 minuta',
 })
 
-const router = express.Router()
+const authRouter = express.Router()
 
-router.route('/register').post(apiLimiter, register)
-router.route('/login').post(apiLimiter, login)
+authRouter.route('/register').post(apiLimiter, register)
+authRouter.route('/login').post(apiLimiter, login)
 // router.route('/updateUser').patch(authenticateUser, updateUser)
 // router.route('/deleteUser').delete(deleteUser)
 
 
-export default router
+export default authRouter

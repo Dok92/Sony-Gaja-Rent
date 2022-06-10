@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import connectDB from './db/connect.js'
 import authRouter from './routes/authRoutes.js'
 import rentsRouter from './routes/rentsRoutes.js'
+import trophiesRouter from './routes/trophiesRoutes.js'
 import morgan from 'morgan'
 import authenticateUser from './middleware/auth.js'
 import { dirname } from 'path'
@@ -40,7 +41,7 @@ app.get('/api/v1', (req, res) => {
 // routes
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/rents', authenticateUser, rentsRouter)
-app.use('/api/v1/trophies', authenticateUser, rentsRouter)
+app.use('/api/v1/trophies', authenticateUser, trophiesRouter)
 
 app.get('*', (req,res) => {
     res.sendFile(path.resolve(__dirname, './client/build', 'index.html'))

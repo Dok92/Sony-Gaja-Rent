@@ -1,17 +1,18 @@
-import { React, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { useAppContext } from "../../context/appContext";
 import { useLocation } from "react-router-dom";
 import Alert from "../Alert";
-import Trophy from "../Trophy";
 import FormRow from "../FormRow";
 import FormRowSelect from "../FormRowSelect";
+import TrophyAlert from "../TrophyAlert";
 
 const AddRent = () => {
   const {
     showAlert,
     displayAlert, 
+    // isTrophyActive,
     trophyType,
-    trophyText,   
+    // trophyText,   
     console,
     days,
     daysOptionsPs4,
@@ -33,6 +34,8 @@ const AddRent = () => {
   } = useAppContext();
 
   const location = useLocation().pathname;  
+
+  const [isTrophyActive, setIsTrophyActive] = useState();
 
   useEffect(() => {
     const psPricing = () => {
@@ -110,18 +113,16 @@ const AddRent = () => {
       let text = "";
       if (totalRents === 0) {
         type = "bronze"
-        text = "trofej prve porudžbine"
+        text = "Prva porudžbina"
       } else if (totalRents === 4) {
         type = "silver"
-        text = "trofej pete porudžbine"
+        text = "Peta porudžbina"
       } else if (totalRents === 9) {
         type = "gold"
-        text = "trofej desete porudžbine"
+        text = "Deseta porudžbina"
       }  
       return {type, text}    
     }
-
-
 
     handleChange({ name: "console", value: location.split("/")[1] });
     handleChange({ name: "price", value: psPricing() + projectorPricing() });
@@ -136,7 +137,13 @@ const AddRent = () => {
       displayAlert();
       return;
     }
-    createRent();
+    if (trophyType !== "") {
+      setIsTrophyActive("active");        
+    }
+    setTimeout(() => {
+      setIsTrophyActive();
+    }, 3000); 
+    createRent();  
   };
 
   const handleRentInput = (e) => {
@@ -151,9 +158,7 @@ const AddRent = () => {
 
   return (
     <>   
-    <h4 id="trophy-test">This is Trophy</h4>
-    <Trophy />
-    <button>Show Toast</button>
+    <TrophyAlert isTrophyActive={isTrophyActive}/>
     <form className='form-add-rent'>
       {showAlert && <Alert />}
       <div className='form-center'>

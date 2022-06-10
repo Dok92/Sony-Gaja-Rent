@@ -21,6 +21,7 @@ export const Profile = {
     label: "trofeji",
     bg: buttonsBlack,
     href: "/trophies", 
+    trophies: true
   },
   // editProfile: {
   //   cover: editUser,

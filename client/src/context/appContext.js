@@ -9,9 +9,9 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   LOGOUT_USER,
-  UPDATE_USER_BEGIN,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_ERROR,
+  // UPDATE_USER_BEGIN,
+  // UPDATE_USER_SUCCESS,
+  // UPDATE_USER_ERROR,
   HANDLE_CHANGE,
   CLEAR_VALUES,
   CREATE_RENT_BEGIN,
@@ -19,9 +19,8 @@ import {
   CREATE_RENT_ERROR,
   GET_RENTS_BEGIN,
   GET_RENTS_SUCCESS,
-  // CREATE_TROPHY_SUCCESS,
-  // CREATE_TROPHY_ERROR,
-  // GET_TROPHIES_SUCCESS,
+  GET_TROPHY_RENTS_BEGIN,
+  GET_TROPHY_RENTS_SUCCESS
 } from './actions'
 
 const token = localStorage.getItem('token')
@@ -33,6 +32,7 @@ const initialState = {
   showAlert: false,
   alertType: '',
   alertText: '',
+  // isTrophyActive: '',
   trophyType: '',
   trophyText: '',
   user: user ? JSON.parse(user) : null,
@@ -52,6 +52,7 @@ const initialState = {
   note: '',
   price: 0,
   rents: [],
+  trophyRents: [],
   totalRents: 0,
   totalSpent: 0,
   sort: 'novije',
@@ -136,39 +137,43 @@ const AppProvider = ({ children }) => {
     }
     clearAlert()
   }
+
   const logoutUser = () => {
     dispatch({ type: LOGOUT_USER })
     removeUserFromLocalStorage()
   }  
-  const updateUser = async (currentUser) => {
-    dispatch({ type: UPDATE_USER_BEGIN })
-    try {
-      const { data } = await authFetch.patch('/auth/updateUser', currentUser)
 
-      const { user, location, token } = data
+  // const updateUser = async (currentUser) => {
+  //   dispatch({ type: UPDATE_USER_BEGIN })
+  //   try {
+  //     const { data } = await authFetch.patch('/auth/updateUser', currentUser)
 
-      dispatch({
-        type: UPDATE_USER_SUCCESS,
-        payload: { user, location, token },
-      })
-      addUserToLocalStorage({ user, location, token })
-    } catch (error) {
-      if (error.response.status !== 401) {
-        dispatch({
-          type: UPDATE_USER_ERROR,
-          payload: { msg: error.response.data.msg },
-        })
-      }
-    }
-    clearAlert()
-  }
+  //     const { user, location, token } = data
+
+  //     dispatch({
+  //       type: UPDATE_USER_SUCCESS,
+  //       payload: { user, location, token },
+  //     })
+  //     addUserToLocalStorage({ user, location, token })
+  //   } catch (error) {
+  //     if (error.response.status !== 401) {
+  //       dispatch({
+  //         type: UPDATE_USER_ERROR,
+  //         payload: { msg: error.response.data.msg },
+  //       })
+  //     }
+  //   }
+  //   clearAlert()
+  // }
 
   const handleChange = ({ name, value }) => {
     dispatch({ type: HANDLE_CHANGE, payload: { name, value } })
   }
+
   const clearValues = () => {
     dispatch({ type: CLEAR_VALUES })
   }
+
   const createRent = async () => {
     dispatch({ type: CREATE_RENT_BEGIN })
     try {
@@ -218,44 +223,23 @@ const AppProvider = ({ children }) => {
     clearAlert()
   }
 
-  // const createTrophy = async () => {
-  //   try {
-  //     const { trophyType, trophyText } = state
-  //     await authFetch.post('/trophies', {
-  //       trophyType,
-  //       trophyText
-  //     })
-  //     dispatch({ type: CREATE_TROPHY_SUCCESS })
-  //   } catch (error) {
-  //     if (error.response.status === 401) return
-  //     dispatch({
-  //       type: CREATE_TROPHY_ERROR,
-  //       payload: { msg: error.response.data.msg },
-  //     })
-  //   }
-  // }
-
-  // const getTrophies = async () => {
-  //   const { sort } = state
-
-  //   let url = `/rents?sort=${sort}`
-  //   dispatch({ type: GET_RENTS_BEGIN })
-  //   try {
-  //     const { data } = await authFetch(url)
-  //     const { rents, totalRents, totalSpent } = data
-  //     dispatch({
-  //       type: GET_RENTS_SUCCESS,
-  //       payload: {
-  //         rents,
-  //         totalRents,
-  //         totalSpent,
-  //       },
-  //     })
-  //   } catch (error) {
-  //     logoutUser()
-  //   }
-  //   clearAlert()
-  // }
+  const getTrophyRents = async () => {
+    let url = '/trophies'
+    dispatch({ type: GET_TROPHY_RENTS_BEGIN })
+    try {
+      const { data } = await authFetch(url)
+      const { trophyRents } = data
+      dispatch({
+        type: GET_TROPHY_RENTS_SUCCESS,
+        payload: {
+          trophyRents
+        },
+      })
+    } catch (error) {
+      logoutUser()
+    }
+    clearAlert()
+  }
 
   return (
     <AppContext.Provider
@@ -264,12 +248,12 @@ const AppProvider = ({ children }) => {
         displayAlert,
         setupUser,
         logoutUser,
-        updateUser,
+        // updateUser,
         handleChange,
         clearValues,
         createRent,
         getRents,
-        // createTrophy,
+        getTrophyRents
       }}
     >
       {children}

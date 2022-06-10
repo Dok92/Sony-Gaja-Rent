@@ -27,7 +27,7 @@
 
       @media (min-width: 576px) {
         top: 55%;
-        width: auto;
+        // width: auto;
         left: 100%;
         white-space: nowrap;
       }
@@ -42,6 +42,8 @@
       width: 130px;
 
       div {
+        // display: -webkit-box;
+        flex-flow: row-reverse;
         transition-delay: $animation-time;
         opacity: 1;
       }

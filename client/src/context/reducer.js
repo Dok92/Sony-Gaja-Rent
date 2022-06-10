@@ -16,6 +16,8 @@ import {
   CREATE_RENT_ERROR,
   GET_RENTS_BEGIN,
   GET_RENTS_SUCCESS,
+  GET_TROPHY_RENTS_BEGIN,
+  GET_TROPHY_RENTS_SUCCESS
 } from './actions'
 
 import { initialState } from './appContext'
@@ -159,6 +161,17 @@ const reducer = (state, action) => {
       totalSpent: action.payload.totalSpent,
     }
   }
+  if (action.type === GET_TROPHY_RENTS_BEGIN) {
+    return { ...state, isLoading: true }
+  }
+  if (action.type === GET_TROPHY_RENTS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      trophyRents: action.payload.trophyRents
+    }
+  }
+
   throw new Error(`no such action : ${action.type}`)
 }
 
