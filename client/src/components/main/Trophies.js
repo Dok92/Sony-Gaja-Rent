@@ -36,16 +36,17 @@ const Trophies = () => {
         <tbody>
           {trophyRents.map((trophyRent) => {
             const { _id, createdAt, trophy } = trophyRent;
-            const trophyImg =
-              trophy[0] === "bronze" ? bronzeTrophy
-                : trophy[0] === "silver" ? silverTrophy
-                : trophy[0] === "gold" ? goldTrophy
-                : platinumTrophy
+
+            const trophyData = 
+              trophy[0] === 'bronze' ? { img: bronzeTrophy, text: 'Prva porudžbina Sledeća renta: 20% popusta!' }
+              : trophy[0] === 'silver' ? { img: silverTrophy, text: 'Peta porudžbina Sledeća renta: 50% popusta!' }
+              : trophy[0] === 'gold' ? { img: goldTrophy, text: 'Gratis sledeća renta!' }
+              : { img: platinumTrophy,  text: '10% popusta na sve naredne rente' };
             
             return (
               <tr key={_id}>
-                <td><img src={trophyImg} alt="trofej"/></td>
-                <td>{trophy[1]}</td>
+                <td><img src={trophyData.img} alt="trofej"/></td>
+                <td>{trophyData.text}</td>
                 <td>{dayjs(createdAt).format('D.MM.YYYY')}</td> 
               </tr>
             )

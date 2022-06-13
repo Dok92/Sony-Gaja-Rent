@@ -1,5 +1,5 @@
 import { useAppContext } from '../context/appContext'
-import { bronzeTrophy, silverTrophy, goldTrophy } from '../assets/trophies/index';
+import { bronzeTrophy, silverTrophy, goldTrophy, platinumTrophy } from '../assets/trophies/index';
 
 const TrophyAlert = ({isTrophyActive}) => {
   const { trophyType, trophyText } = useAppContext()
@@ -7,7 +7,7 @@ const TrophyAlert = ({isTrophyActive}) => {
   return (
     <div className={`trophy-earned ${isTrophyActive}`}>
       <div className='trophy-earned-content'>
-          <img src={trophyType === "bronze" ? bronzeTrophy : trophyType === "silver" ? silverTrophy : goldTrophy} alt='trofej' />
+          <img src={trophyType === "bronze" ? bronzeTrophy : trophyType === "silver" ? silverTrophy : trophyType === "gold" ? goldTrophy : platinumTrophy} alt='trofej' />
         <div className='message'>
           {/* <span className='text text-1'>{trophyType}</span> */}
           <span className='trophy-earned-text'>{trophyText}</span>

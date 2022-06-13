@@ -111,21 +111,26 @@ const AddRent = () => {
     const checkTrophy = () => {
       let type = "";
       let text = "";
-      if (totalRents === 0) {
-        type = "bronze"
-        text = "Prva porudžbina"
-      } else if (totalRents === 4) {
-        type = "silver"
-        text = "Peta porudžbina"
-      } else if (totalRents === 9) {
-        type = "gold"
-        text = "Deseta porudžbina"
-      }  
-      return {type, text}    
+      let discount = 1
+
+      // eslint-disable-next-line no-unused-expressions
+      totalRents === 0 ? (type = "bronze", text = "Prva porudžbina") 
+      : totalRents === 4 ? (type = "silver", text = "Peta porudžbina")
+      : totalRents === 9 ? (type = "gold", text = "Deseta porudžbina")
+      : totalRents === 10 ? (type = "platinum", text = "Preko 10 porudžbina")
+      : (type = "", text = "")
+      
+      totalRents === 1 ? discount = 0.8 : 
+      totalRents === 5 ? discount = 0.5 : 
+      totalRents === 10 ? discount = 0 :
+      totalRents > 10 ? discount = 0.9 :
+      discount = 1
+      
+      return {type, text, discount}    
     }
 
     handleChange({ name: "console", value: location.split("/")[1] });
-    handleChange({ name: "price", value: psPricing() + projectorPricing() });
+    handleChange({ name: "price", value: (psPricing() + projectorPricing()) * checkTrophy().discount });
     handleChange({ name: "trophyType", value: checkTrophy().type });
     handleChange({ name: "trophyText", value: checkTrophy().text });
   }, [console, controllers, days, location, projector]);
@@ -142,7 +147,7 @@ const AddRent = () => {
     }
     setTimeout(() => {
       setIsTrophyActive();
-    }, 3000); 
+    }, 5000); 
     createRent();  
   };
 

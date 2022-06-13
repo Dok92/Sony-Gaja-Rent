@@ -34,7 +34,7 @@ a {
 }
 
 p {
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;  
 }
 
 
@@ -68,9 +68,9 @@ img.trophy {
   padding: 8px;
 }
 
-// img.trophy-bronze {
-//   opacity: 1;  
-// }
+img.trophy.won {
+  opacity: 1;
+}
 
 .form-add-rent {
   max-width: 30rem;
@@ -177,7 +177,7 @@ img.trophy {
 
 // Trophy
 
-.trophy-earned{
+.trophy-earned {
   position: absolute;
   width: 400px;
   top: -13rem;
@@ -194,7 +194,7 @@ img.trophy {
   &.active{
     transform: translateX(0%);
     opacity: 1;
-  }
+  }  
 
   & .trophy-earned-content{
     display: flex;
@@ -226,6 +226,28 @@ img.trophy {
       }
     }
   }
+
+  @media (max-width: 900px) {
+    width: 265px;
+    top: -2rem;
+    right: 0;
+    margin-right: 2.8rem;
+    padding: 3px 25px 3px 15px;
+
+    & .trophy-earned-content{
+      & img {
+        width: 40px;
+      }
+      & .message{
+        & .trophy-earned-text {
+          font-size: 1.1rem;
+        }
+        & p {
+          font-size: 1rem;
+        }
+      }
+
+  }}
 }
 
 .ps5-btn-group {
