@@ -1,6 +1,6 @@
 import rent from "./assets/cover-store.png";
 import avatar from "./assets/user-1.jpg";
-import charWitcherDarkBottom from "./assets/char-witcherFront-dark-bottom.jpg";
+import witcher from "./assets/witcher.webp";
 import ps4Bg from "./assets/ps4/ps4-background.jpg";
 import ps4Cover from "./assets/ps4/ps4-cover-60.png";
 import ps5Bg from "./assets/ps5/playstation-5-background.webp"; 
@@ -13,7 +13,7 @@ export const Profile = {
   profile: {
     cover: avatar,
     profile: true,
-    bg: charWitcherDarkBottom,
+    bg: witcher,
     href: "/profile", 
   },
   trophies: {
@@ -52,4 +52,4 @@ export const Rent = {
     renting: true,
     href: "/ps4" 
   },
-};
+}; 

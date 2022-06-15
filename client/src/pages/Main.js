@@ -121,7 +121,7 @@ class Main extends Component {
           </div>
         </CSSTransition>
 
-        <CSSTransition in={home} timeout={1000} unmountOnExit>
+        <CSSTransition in={home} timeout={1000} unmountOnExit> 
           <Home
             ref={this.wrapper}
             onClick={() => this.setState({ home: false })}
