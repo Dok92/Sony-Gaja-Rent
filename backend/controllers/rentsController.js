@@ -47,18 +47,4 @@ const getAllRents = async (req, res) => {
   res.status(StatusCodes.OK).json({ rents, totalRents, totalSpent })
 }
 
-const getTrophyRents = async (req, res) => {
-  const queryObject = {
-    createdBy: req.user.userId,
-    // chek if trophy arr is not empty
-    trophy: { $ne: "" }
-  }
-
-  let result = Rent.find(queryObject)
-  const trophyRents = await result
-
-  res.status(StatusCodes.OK).json({ trophyRents })
-}
-
-
-export { createRent, getAllRents, getTrophyRents }
+export { createRent, getAllRents }

@@ -7,7 +7,6 @@ const classNames = require("classnames");
 class Disk extends Component {
   render() {
     const item = this.props.item; 
-    const hover = this.props.hover; 
 
     return (
       <Link
@@ -15,8 +14,6 @@ class Disk extends Component {
         title={item.label}
         className={classNames(
           "ps5-disk",
-          { "ps5-disk-mid": hover === "mid" },
-          { "ps5-disk-min": hover === "min" },
           this.props.className
         )}
         style={{ backgroundImage: "url(" + item.cover + ")" }}
@@ -32,4 +29,4 @@ class Disk extends Component {
 }
 
 export default Disk;
- 
+  

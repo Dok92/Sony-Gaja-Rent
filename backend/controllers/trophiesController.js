@@ -4,7 +4,7 @@ import { StatusCodes } from 'http-status-codes'
 const getTrophyRents = async (req, res) => {
   const queryObject = {
     createdBy: req.user.userId,
-    // chek if trophy arr is not empty
+    // check if trophy arr is not empty
     trophy: { $ne: "" }
   }
 

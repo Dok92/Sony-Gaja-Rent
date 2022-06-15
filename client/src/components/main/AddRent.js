@@ -5,14 +5,13 @@ import Alert from "../Alert";
 import FormRow from "../FormRow";
 import FormRowSelect from "../FormRowSelect";
 import TrophyAlert from "../TrophyAlert";
+import './AddRent.scss'
 
 const AddRent = () => {
   const {
     showAlert,
     displayAlert, 
-    // isTrophyActive,
-    trophyType,
-    // trophyText,   
+    trophyType, 
     console,
     days,
     daysOptionsPs4,
@@ -24,10 +23,8 @@ const AddRent = () => {
     projector,
     projectorOptions,
     phone,
-    // note,
     price,
     totalRents,
-    // totalSpent,
     handleChange,
     createRent,
     getRents
@@ -120,11 +117,11 @@ const AddRent = () => {
       : totalRents === 10 ? (type = "platinum", text = "Preko 10 porudžbina")
       : (type = "", text = "")
       
-      totalRents === 1 ? discount = 0.8 : 
-      totalRents === 5 ? discount = 0.5 : 
-      totalRents === 10 ? discount = 0 :
-      totalRents > 10 ? discount = 0.9 :
-      discount = 1
+      totalRents === 1 ? discount = 0.8
+       : totalRents === 5 ? discount = 0.5
+       : totalRents === 10 ? discount = 0
+       : totalRents > 10 ? discount = 0.9
+       : discount = 1
       
       return {type, text, discount}    
     }
@@ -143,8 +140,8 @@ const AddRent = () => {
       return;
     }
     if (trophyType !== "") {
-      setIsTrophyActive("active");        
-    }
+    setIsTrophyActive("active");        
+  }
     setTimeout(() => {
       setIsTrophyActive();
     }, 5000); 
@@ -201,12 +198,6 @@ const AddRent = () => {
             value={phone}
             handleChange={handleRentInput}
           />
-          {/* <FormRow
-            labelText='Napomena:'
-            name='note'
-            value={note}
-            handleChange={handleRentInput}
-          /> */}
         <div className='btn-container'>
           <h4>Iznos: {price} dinara</h4>
           <button

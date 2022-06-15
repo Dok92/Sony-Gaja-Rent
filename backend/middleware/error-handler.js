@@ -8,7 +8,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     }
     if (err.name === 'ValidationError') {
         defaultError.statusCode = StatusCodes.BAD_REQUEST
-        // defaultError.msg = err.message
         defaultError.msg = Object.values(err.errors).map(item => item.message).join(',')
     }
     if (err.code && err.code === 11000) {
@@ -16,7 +15,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         defaultError.msg = `${Object.keys(err.keyValue)} polje mora biti jedinstveno`
     }
     res.status(defaultError.statusCode).json({ msg: defaultError.msg })
-    // next(err)
 }
 
 export default errorHandlerMiddleware

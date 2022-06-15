@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
-
 import Home from "../components/home/Home.js";
 import Background from "../components/Background.js";
 import Top from "../components/topMenu/Top.js";
 import Menu from "../components/slideMenu/Menu.js";
 import Preview from "../components/main/Preview.js";
 import Modal from "../components/topMenu/Modal.js";
-
 import "./Main.scss";
 
 const classNames = require("classnames");
@@ -107,7 +105,6 @@ class Main extends Component {
                   top={top}
                   onClickMenu={(e) => this.navUpdate(e)}
                   onClickModal={(e) => this.modalOpen(e)}
-                  onClickSettings={() => this.settingsOpen()}
                 />
 
                 <Menu

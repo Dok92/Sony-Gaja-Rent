@@ -9,17 +9,11 @@ import FormRowSelect from "../FormRowSelect";
 import "./Profile.scss";
 
 const Profile = () => {
-  const {
-    rents,
-    getRents,
-    sort,
-    sortOptions,
-    handleChange,
-  } = useAppContext();
+  const { rents, getRents, sort, sortOptions, handleChange } = useAppContext();
 
-  dayjs.locale('sr')
-
-  useEffect(() => { 
+  dayjs.locale("sr"); // date locale format
+  
+  useEffect(() => {
     getRents();
   }, [sort]);
 
@@ -28,11 +22,17 @@ const Profile = () => {
   };
 
   return (
-    <div>     
+    <div>
       <form className='sort'>
         <h4>Rentiranja</h4>
         <div className='sort-center'>
-          <FormRowSelect labelText="sortiraj:" name='sort' value={sort} handleChange={handleSearch} list={sortOptions} />
+          <FormRowSelect
+            labelText='sortiraj:'
+            name='sort'
+            value={sort}
+            handleChange={handleSearch}
+            list={sortOptions}
+          />
         </div>
       </form>
       <table>
@@ -42,7 +42,7 @@ const Profile = () => {
             <td>Dana</td>
             <td>Cena</td>
             <td>Datum</td>
-          </tr> 
+          </tr>
         </thead>
       </table>
       <div className='tbl-content'>
@@ -58,15 +58,18 @@ const Profile = () => {
                   : console === "ps5" && controllers === 2
                   ? ps5Controller2
                   : ps5Controller4;
-              
+
               return (
                 <tr key={_id}>
-                  <td><img src={consoleImg} alt="playstation konzola"/>{projector !== "Ne" && projector !== "" ? ' uz projektor ' + projector : ''}</td>
+                  <td>
+                    <img src={consoleImg} alt='playstation konzola' />
+                    {projector !== "Ne" && projector !== "" ? " uz projektor " + projector : ""}
+                  </td>
                   <td>{days}</td>
                   <td>{price}</td>
-                  <td>{dayjs(createdAt).format('D.MM.YYYY')}</td> 
+                  <td>{dayjs(createdAt).format("D.MM.YYYY")}<br />{dayjs(createdAt).format("HH:mm")} časova</td>
                 </tr>
-              )
+              );
             })}
           </tbody>
         </table>

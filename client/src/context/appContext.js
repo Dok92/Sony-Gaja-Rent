@@ -9,9 +9,6 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   LOGOUT_USER,
-  // UPDATE_USER_BEGIN,
-  // UPDATE_USER_SUCCESS,
-  // UPDATE_USER_ERROR,
   HANDLE_CHANGE,
   CLEAR_VALUES,
   CREATE_RENT_BEGIN,
@@ -32,7 +29,6 @@ const initialState = {
   showAlert: false,
   alertType: '',
   alertText: '',
-  // isTrophyActive: '',
   trophyType: '',
   trophyText: '',
   user: user ? JSON.parse(user) : null,
@@ -68,8 +64,8 @@ const AppProvider = ({ children }) => {
   const authFetch = axios.create({
     baseURL: '/api/v1',
   })
-  // request
 
+  // request
   authFetch.interceptors.request.use(
     (config) => {
       config.headers.common['Authorization'] = `Bearer ${state.token}`
@@ -79,8 +75,8 @@ const AppProvider = ({ children }) => {
       return Promise.reject(error)
     }
   )
+  
   // response
-
   authFetch.interceptors.response.use(
     (response) => {
       return response
@@ -142,29 +138,6 @@ const AppProvider = ({ children }) => {
     dispatch({ type: LOGOUT_USER })
     removeUserFromLocalStorage()
   }  
-
-  // const updateUser = async (currentUser) => {
-  //   dispatch({ type: UPDATE_USER_BEGIN })
-  //   try {
-  //     const { data } = await authFetch.patch('/auth/updateUser', currentUser)
-
-  //     const { user, location, token } = data
-
-  //     dispatch({
-  //       type: UPDATE_USER_SUCCESS,
-  //       payload: { user, location, token },
-  //     })
-  //     addUserToLocalStorage({ user, location, token })
-  //   } catch (error) {
-  //     if (error.response.status !== 401) {
-  //       dispatch({
-  //         type: UPDATE_USER_ERROR,
-  //         payload: { msg: error.response.data.msg },
-  //       })
-  //     }
-  //   }
-  //   clearAlert()
-  // }
 
   const handleChange = ({ name, value }) => {
     dispatch({ type: HANDLE_CHANGE, payload: { name, value } })
@@ -248,7 +221,6 @@ const AppProvider = ({ children }) => {
         displayAlert,
         setupUser,
         logoutUser,
-        // updateUser,
         handleChange,
         clearValues,
         createRent,

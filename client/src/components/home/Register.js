@@ -8,7 +8,7 @@ const initialState = {
   name: "",
   email: "",
   password: "",
-  isMember: true,
+  isMember: true, // true = login, false = register
 };
 
 const Register = () => {
@@ -18,7 +18,8 @@ const Register = () => {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-
+  
+  // toggle register - login
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
@@ -44,7 +45,7 @@ const Register = () => {
     <>
       <form className='form-register' onSubmit={onSubmit}>
         <h3>{values.isMember ? "Prijava" : "Registracija"}</h3>
-        {showAlert && <Alert />}
+        {showAlert && <Alert />} 
         {!values.isMember && (
           <FormRow
             type='text'
@@ -68,7 +69,7 @@ const Register = () => {
           value={values.password}
           handleChange={handleChange}
         />
-        <button type='submit' disabled={isLoading} className='ps5-btn ps5-btn-lg ps5-btn-register'>
+        <button type='submit' disabled={isLoading} className='ps5-btn ps5-btn-lg ps5-btn-dark'>
           Prijavi se
         </button>
         <p>

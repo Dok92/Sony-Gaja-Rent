@@ -7,21 +7,6 @@ table thead {
   vertical-align: baseline;
 }
 
-// table thead td:first-child {
-//   text-align: start;
-//   width: 100px;
-//   @media (max-width: 500px) {
-//     width: 80px;
-//   }
-// }
-
-// table thead td:nth-child(3) {
-//   @media (max-width: 500px) {
-//     max-width: 57px;
-//     min-width: 57px;
-//   }
-// }
-
 table thead td:last-child {
   padding-right: 20px;
   @media (max-width: 500px) {
@@ -45,23 +30,6 @@ table thead td:not(:first-child)  {
     height: calc(100vh - 26em);
   }
 }
-
-// table tbody tr td:nth-child(3) {
-//   @media (max-width: 500px) {
-//     max-width: 57px;
-//     min-width: 57px;
-//   }
-// }
-
-// table tbody tr td:nth-child(4) {
-//   width: 120px;
-//   padding-right: 20px;
-//   @media (max-width: 500px) {
-//     max-width: 105px;
-//     min-width: 105px;
-//     padding-right: 10px;
-//   }
-// }
 
 table tbody tr td:last-child {
   width: 120px;

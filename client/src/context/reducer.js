@@ -6,9 +6,6 @@ import {
   SETUP_USER_ERROR,
   TOGGLE_SIDEBAR,
   LOGOUT_USER,
-  UPDATE_USER_BEGIN,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_ERROR,
   HANDLE_CHANGE,
   CLEAR_VALUES,
   CREATE_RENT_BEGIN,
@@ -39,7 +36,6 @@ const reducer = (state, action) => {
       alertText: '',
     }
   }
-
   if (action.type === SETUP_USER_BEGIN) {
     return { ...state, isLoading: true }
   }
@@ -80,31 +76,6 @@ const reducer = (state, action) => {
       userLocation: '',
     }
   }
-  if (action.type === UPDATE_USER_BEGIN) {
-    return { ...state, isLoading: true }
-  }
-  if (action.type === UPDATE_USER_SUCCESS) {
-    return {
-      ...state,
-      isLoading: false,
-      token: action.payload.token,
-      user: action.payload.user,
-      userLocation: action.payload.location,
-      rentLocation: action.payload.location,
-      showAlert: true,
-      alertType: 'success',
-      alertText: 'Profil ažuriran!',
-    }
-  }
-  if (action.type === UPDATE_USER_ERROR) {
-    return {
-      ...state,
-      isLoading: false,
-      showAlert: true,
-      alertType: 'danger',
-      alertText: action.payload.msg,
-    }
-  }
   if (action.type === HANDLE_CHANGE) {
     return {
       ...state,
@@ -121,7 +92,6 @@ const reducer = (state, action) => {
       note: '',
       phone: ''
     }
-
     return {
       ...state,
       ...initialState,
@@ -130,7 +100,6 @@ const reducer = (state, action) => {
   if (action.type === CREATE_RENT_BEGIN) {
     return { ...state, isLoading: true }
   }
-
   if (action.type === CREATE_RENT_SUCCESS) {
     return {
       ...state,
@@ -171,7 +140,6 @@ const reducer = (state, action) => {
       trophyRents: action.payload.trophyRents
     }
   }
-
   throw new Error(`no such action : ${action.type}`)
 }
 

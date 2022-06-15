@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Social from "./Social.js";
 import userImg from "../../assets/user-1.jpg";
-import { menuPrimary } from "./topNavigation.js";
+import { navMenu } from "./topNav.js";
 import "./Top.scss";
 
 const classNames = require("classnames");
 
 class Top extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
 
     this.state = {
       time: "--:--",
@@ -39,12 +39,12 @@ class Top extends Component {
   }
 
   handleClickLeft(current) {
-    const content = menuPrimary[current].content;
+    const content = navMenu[current].content;
 
     if (content) {
       let apps = [];
 
-      content.forEach((item, i) => {
+      content.forEach((item) => {
         let app = item.app;
         if (app) {
           apps.push(item.app);
@@ -55,7 +55,6 @@ class Top extends Component {
         apps = false;
       }
 
-
       this.props.onClickMenu({
         apps,
         top: current,
@@ -63,35 +62,20 @@ class Top extends Component {
     }
   }
 
-  // Open modal upon clicking the profile icon
-  handleClickRight(type, modalContent) {
-    if (type !== "sat") {
-      this.props.onClickModal(modalContent);
-    }
+  handleClickRight() {
+    this.props.onClickModal(<Social />);
   }
 
   render() {
-    const menuSecondary = [
-      {
-        url: "#user",
-        content: <div id="user-active"><img src={userImg} alt="" /></div>,
-        modalContent: <Social />,
-      },
-      {
-        label: "sat",
-        content: "sat",
-      },
-    ];
-
     return (
-      <div className="ps5-top">
+      <div className='ps5-top'>
         <ul>
-          {menuPrimary.map((item, i) => {
+          {navMenu.map((item, i) => {
             return (
               <li key={i}>
                 <Link
                   to={item.url}
-                  className={classNames("ps5-top-btn", { 
+                  className={classNames("ps5-top-btn", {
                     active: this.props.top === i,
                   })}
                   onClick={() => this.handleClickLeft(i)}
@@ -102,26 +86,23 @@ class Top extends Component {
             );
           })}
         </ul>
-        <ul>          
-          {menuSecondary.map((item, i) => {
-            const clock = item.label === "sat";
-            return (
-              <li key={i}>
-                <a
-                  href={item.url}
-                  title={item.label}
-                  className={
-                    clock ? "ps5-top-btn active" : "ps5-btn ps5-btn-mono"
-                  }
-                  onClick={() =>
-                    this.handleClickRight(item.label, item.modalContent)
-                  }
-                >
-                  {clock ? this.state.time : item.content}
-                </a>
-              </li>
-            );
-          })}
+        <ul>
+          <li>
+            <a
+              href='#user'
+              className='ps5-btn ps5-btn-mono'
+              onClick={() => this.handleClickRight()}
+            >
+              <div id='user-active'>
+                <img src={userImg} alt='' />
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href='#' className='ps5-top-btn active'>
+              {this.state.time}
+            </a>
+          </li>
         </ul>
       </div>
     );

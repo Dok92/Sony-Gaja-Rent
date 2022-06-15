@@ -12,8 +12,6 @@ const authRouter = express.Router()
 
 authRouter.route('/register').post(apiLimiter, register)
 authRouter.route('/login').post(apiLimiter, login)
-// router.route('/updateUser').patch(authenticateUser, updateUser)
-// router.route('/deleteUser').delete(deleteUser)
 
 
 export default authRouter

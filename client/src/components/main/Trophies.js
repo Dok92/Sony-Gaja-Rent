@@ -4,9 +4,8 @@ import { bronzeTrophy, silverTrophy, goldTrophy, platinumTrophy } from '../../as
 import dayjs from "dayjs";  
 import "./Profile.scss";
 
-
 const Trophies = () => {
-  const {
+  const { 
     trophyRents,
     getTrophyRents, 
   } = useAppContext();
@@ -24,7 +23,7 @@ const Trophies = () => {
     </form>
     <table>
       <thead>
-        <tr>
+        <tr> 
           <td>Trofej</td>
           <td>Osvojen trofej</td>
           <td>Datum</td>

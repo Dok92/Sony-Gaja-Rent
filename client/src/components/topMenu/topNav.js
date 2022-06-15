@@ -1,6 +1,6 @@
 import { Rent, Profile } from "../../data.js"; 
 
-export const menuPrimary = [
+export const navMenu = [
   {
     label: "Rent",
     url: "/rent",
@@ -21,10 +21,9 @@ export const menuPrimary = [
     url: "/profile",
     content: [
       { app: Profile.profile },
-      { app: Profile.trophies },
-      // { app: Profile.editProfile },
+      { app: Profile.trophies }
     ], 
   },
 ];
 
-export default menuPrimary;
+export default navMenu;

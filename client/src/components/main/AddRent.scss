@@ -1,0 +1,21 @@
+.form-add-rent {
+  max-width: 30rem;
+  margin-bottom: 5rem;
+  & select {
+    font-size: 16px;
+  }
+}
+
+.form-center :nth-child(5){
+  display: flex!important;
+
+  & label {
+    margin-right: 5px;
+  }
+  
+  & input {
+    margin-top: 0!important; 
+    padding-bottom: 0;
+    width: 9rem;
+  }
+}

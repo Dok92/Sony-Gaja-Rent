@@ -22,13 +22,7 @@ export const Profile = {
     bg: buttonsBlack,
     href: "/trophies", 
     trophies: true
-  },
-  // editProfile: {
-  //   cover: editUser,
-  //   label: "izmeni profil",
-  //   bg: buttonsBlack,
-  //   href: "/edit-profile", 
-  // },
+  }
 };
 
 export const Rent = {
@@ -37,9 +31,8 @@ export const Rent = {
     label: "Iznajmljivanje",
     bg: rentBg,
     title: "Budi dosledan. Iznajmljuj PS kod nas.",
-    text: "Budi naša verna mušterija, osvoji trofeje i ostvari dodatne pogodnosti, popuste i ponude. Poruci dva puta kod nas i osvoji bronzani trofej nakon kojeg te ceka 20% popusta na sledece iznajmljivanje.", 
+    text: "Budi naša verna mušterija, rentiraj i osvoji trofeje nakon kojih te čekaju dodatne pogodnosti.", 
     href: "/rent", 
-    // pricing: true
   },  
   ps5: {
     cover: ps5Cover,
@@ -47,7 +40,6 @@ export const Rent = {
     bg: ps5Bg,
     title: "Playstation 5",
     text: "Uz svaku konzolu ide 15+ igara. U slucaju da Vas neka igra posebno zanima, slobodno nam naglasite.",
-    // order5: true,
     renting: true,
     href: "/ps5" 
   },
@@ -57,7 +49,6 @@ export const Rent = {
     bg: ps4Bg,
     title: "Playstation 4",
     text: "Iznajmljivanje sony ps pro sa ps + za online igranje",
-    // order4: true,
     renting: true,
     href: "/ps4" 
   },

@@ -11,7 +11,7 @@ class Menu extends Component {
     return apps ? (
       <ul
         className="ps5-menu"
-        // NOTE moves disks to the left uppon selecting (turn off for mobile?)
+        // NOTE moves disks horizontaly upon selecting (turn off for mobile?)
         style={{ transform: "translateX(-" + appSelected * 80 + "px)" }}
       >
         {apps.map((item, i) => {
