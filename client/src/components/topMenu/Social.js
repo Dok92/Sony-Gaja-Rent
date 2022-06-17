@@ -14,19 +14,23 @@ const initialState = {
 }
 
 const Social = () => {
-  const { logoutUser, user, totalRents } = useAppContext();
+  const { logoutUser, user, totalRents, getTrophyRents, trophyRents } = useAppContext();
 
   const [trophy, setTrophy] = useState(initialState);
+  
+  useEffect(() => {
+    getTrophyRents();   
+  }, [totalRents])
 
   useEffect(() => {
-    if(totalRents > 0 && totalRents < 5) {
+    if(trophyRents.length === 1) {
       setTrophy(t => ({...t, bronze: 'won'}))
-    } else if(totalRents > 4 && totalRents < 10) {
+    } else if(trophyRents.length === 2) {
       setTrophy(t => ({...t, silver: 'won', bronze: 'won'}))
-    } else if (totalRents >= 10) {
+    } else if (trophyRents.length >= 3) {
       setTrophy(t => ({...t, platinum: 'won', gold: 'won', silver: 'won', bronze: 'won'}))
     }
-  }, [totalRents])
+  }, [trophyRents])
 
   const { bronze, silver, gold, platinum } = trophy;
 

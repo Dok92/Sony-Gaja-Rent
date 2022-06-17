@@ -190,7 +190,7 @@ const AppProvider = ({ children }) => {
           totalSpent,
         },
       })
-    } catch (error) {
+    } catch (error) { 
       logoutUser()
     }
     clearAlert()
