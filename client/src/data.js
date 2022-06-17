@@ -5,7 +5,7 @@ import ps4Bg from "./assets/ps4/ps4-background.jpg";
 import ps4Cover from "./assets/ps4/ps4-cover-60.png";
 import ps5Bg from "./assets/ps5/playstation-5-background.webp"; 
 import ps5Cover from "./assets/ps5/ps5-60.png";
-import rentBg from "./assets/miles-morales.jpg"
+import rentBg from "./assets/miles-morales.webp"
 import platinumCover from "./assets/trophies/platinum-cover.png";
 import buttonsBlack from "./assets/buttons-black.jpg";
 

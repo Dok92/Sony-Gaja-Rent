@@ -18,15 +18,10 @@ class Main extends Component {
       top: undefined,
       apps: [],
       appSelected: undefined,
-      lists: false,
-      player: false,
       modal: false,
       modalContent: "",
-      scrolled: false,
-      settings: false,
     };
     this.keydownFunction = this.keydownFunction.bind(this);
-    this.scrollFunction = this.scrollFunction.bind(this);
     this.wrapper = React.createRef();
   }
 
@@ -36,36 +31,20 @@ class Main extends Component {
     }
   }
 
-  scrollFunction(e) {
-    if (window.scrollY > 100) {
-      this.setState({
-        scrolled: true,
-      });
-    }
-  }
-
   componentDidMount() {
     document.addEventListener("keydown", this.keydownFunction, false);
-    window.addEventListener("scroll", this.scrollFunction);
   }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.keydownFunction, false);
-    window.removeEventListener("scroll", this.scrollFunction);
   }
 
   modalClose() {
     this.setState({ modal: false });
-    if (this.state.player) {
-      this.state.player.pauseVideo();
-    }
   }
 
   modalOpen(data) {
     this.setState({ modal: true, modalContent: data });
-    if (this.state.player) {
-      this.state.player.playVideo();
-    }
   }
 
   navUpdate(data) {
@@ -78,7 +57,7 @@ class Main extends Component {
   }
 
   render() {
-    const { apps, appSelected, home, scrolled, top, modalContent, modal } = this.state
+    const { apps, appSelected, home, top, modalContent, modal } = this.state
     let app = false;
     let list = false;
     if (apps !== undefined) {
@@ -89,13 +68,11 @@ class Main extends Component {
       <>
         <CSSTransition in={!home} timeout={2000} >
           <div
-            className={classNames("ps5-page", {
-              "ps5-page-scroll": scrolled,
-            })}
+            className="ps5-page"
           >
             <Background apps={apps} appSelected={appSelected} />
 
-            <div className={"ps5-sheet"} >
+            <div className="ps5-sheet" >
               <div 
                 className={classNames("ps5-hero", "ps5-container", {
                   "ps5-hero-fullscreen": !list,

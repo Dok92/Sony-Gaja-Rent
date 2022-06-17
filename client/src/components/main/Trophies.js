@@ -46,7 +46,7 @@ const Trophies = () => {
               <tr key={_id}>
                 <td><img src={trophyData.img} alt="trofej"/></td>
                 <td>{trophyData.text}</td>
-                <td>{dayjs(createdAt).format('D.MM.YYYY')}</td> 
+                <td>{dayjs(createdAt).format('D.MM.YYYY')}<br />{dayjs(createdAt).format("HH:mm")} časova</td> 
               </tr>
             )
           })}
