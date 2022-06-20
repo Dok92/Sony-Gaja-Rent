@@ -9,22 +9,6 @@ import rentBg from "./assets/miles-morales.webp"
 import platinumCover from "./assets/trophies/platinum-cover.png";
 import buttonsBlack from "./assets/buttons-black.jpg";
 
-export const Profile = {
-  profile: {
-    cover: avatar,
-    profile: true,
-    bg: witcher,
-    href: "/profile", 
-  },
-  trophies: {
-    cover: platinumCover,
-    label: "trofeji",
-    bg: buttonsBlack,
-    href: "/trophies", 
-    trophies: true
-  }
-};
-
 export const Rent = {
   rent: {
     cover: rent,
@@ -53,3 +37,19 @@ export const Rent = {
     href: "/ps4" 
   },
 }; 
+
+export const Profile = {
+  profile: {
+    cover: avatar,
+    profile: true,
+    bg: witcher,
+    href: "/profile", 
+  },
+  trophies: {
+    cover: platinumCover,
+    label: "trofeji",
+    bg: buttonsBlack,
+    href: "/trophies", 
+    trophies: true
+  }
+};

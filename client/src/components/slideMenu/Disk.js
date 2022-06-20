@@ -8,7 +8,7 @@ class Disk extends Component {
   render() {
     const item = this.props.item; 
 
-    return (
+    return ( 
       <Link
         to={item.href}
         title={item.label}

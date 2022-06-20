@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Social from "./Social.js";
 import userImg from "../../assets/user-1.jpg";
-import { navMenu } from "./TopNav.js";
+import topNav from "./TopNav.js";
 import "./Top.scss";
 
 const classNames = require("classnames");
@@ -39,7 +39,7 @@ class Top extends Component {
   }
 
   handleClickLeft(current) {
-    const content = navMenu[current].content;
+    const content = topNav[current].content;
 
     if (content) {
       let apps = [];
@@ -56,7 +56,7 @@ class Top extends Component {
       }
 
       this.props.onClickMenu({
-        apps,
+        apps, 
         top: current,
       });
     }
@@ -70,7 +70,7 @@ class Top extends Component {
     return (
       <div className='ps5-top'>
         <ul>
-          {navMenu.map((item, i) => {
+          {topNav.map((item, i) => {
             return (
               <li key={i}>
                 <Link

@@ -6,7 +6,9 @@ import Top from "../components/topMenu/Top.js";
 import Menu from "../components/slideMenu/Menu.js";
 import Preview from "../components/main/Preview.js";
 import Modal from "../components/topMenu/Modal.js";
+import Witcher from "../assets/witcher.webp";
 import "./Main.scss";
+
 
 const classNames = require("classnames");
 
@@ -20,6 +22,7 @@ class Main extends Component {
       appSelected: undefined,
       modal: false,
       modalContent: "",
+      loadWitcher: false
     };
     this.keydownFunction = this.keydownFunction.bind(this);
     this.wrapper = React.createRef();
@@ -52,12 +55,13 @@ class Main extends Component {
       apps: data.apps,
       top: data.top,
       appSelected: 0,
+      loadWitcher: false
     });
     this.modalClose();
   }
 
   render() {
-    const { apps, appSelected, home, top, modalContent, modal } = this.state
+    const { apps, appSelected, home, top, modalContent, modal, loadWitcher } = this.state
     let app = false;
     let list = false;
     if (apps !== undefined) {
@@ -71,7 +75,6 @@ class Main extends Component {
             className="ps5-page"
           >
             <Background apps={apps} appSelected={appSelected} />
-
             <div className="ps5-sheet" >
               <div 
                 className={classNames("ps5-hero", "ps5-container", {
@@ -82,26 +85,28 @@ class Main extends Component {
                   top={top}
                   onClickMenu={(e) => this.navUpdate(e)}
                   onClickModal={(e) => this.modalOpen(e)}
-                />
+                  />
 
                 <Menu
                   apps={apps}
                   appSelected={appSelected}
                   onClick={(e) => this.setState({ appSelected: e })} 
-                />
+                  />
 
                 {app && (
                   <Preview app={app} onClick={(e) => this.modalOpen(e)} />
-                )}
+                  )}
               </div>
-            </div>         
+            </div>
+              {/* NOTE preloading img for seamles transition to /profile */}
+            {loadWitcher && <img src={Witcher} id="load-witcher" alt=""></img>}
           </div>
         </CSSTransition>
 
         <CSSTransition in={home} timeout={1000} unmountOnExit> 
           <Home
             ref={this.wrapper}
-            onClick={() => this.setState({ home: false })}
+            onClick={() => this.setState({ home: false, loadWitcher: true })}
           />
         </CSSTransition>
 

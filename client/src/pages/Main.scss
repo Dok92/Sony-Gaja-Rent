@@ -66,6 +66,29 @@ img.trophy.won {
   opacity: 1;
 }
 
+#load-witcher {
+  display: none;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 2px solid rgb(122, 122, 122);
+  border-radius: 50%;
+  border-top-color: rgb(245, 245, 245);
+  animation: spinner 500ms linear infinite;
+}
+
+.loading-center {
+  margin: 0 auto;
+}
+
 .ps5-shine {
   position: relative;
 
@@ -312,7 +335,7 @@ img.trophy.won {
   }
 }
 
-// Error
+// Error page
 
 .error-page {
   display: flex;

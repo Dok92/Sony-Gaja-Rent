@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import dayjs from "dayjs";
 import { useAppContext } from "../../context/appContext";
+import dayjs from "dayjs";
+import Loading from "../../components/Loading";
 import ps4Controller2 from "../../assets/ps4/ps4-2.png";
 import ps4Controller4 from "../../assets/ps4/ps4-4.png";
 import ps5Controller2 from "../../assets/ps5//console_5-2.png";
@@ -9,12 +10,12 @@ import FormRowSelect from "../FormRowSelect";
 import "./Profile.scss";
 
 const Profile = () => {
-  const { rents, getRents, sort, sortOptions, handleChange } = useAppContext();
+  const { rents, getRents, sort, sortOptions, handleChange, isLoading } = useAppContext();
 
-  dayjs.locale("sr"); // date locale format
+  dayjs.locale("sr"); // date locale format 
   
   useEffect(() => {
-    getRents();
+    getRents()
   }, [sort]);
 
   const handleSearch = (e) => {
@@ -48,7 +49,7 @@ const Profile = () => {
       <div className='tbl-content'>
         <table>
           <tbody>
-            {rents.map((rent) => {
+            {isLoading ? <Loading center /> : rents.map((rent) => {
               const { _id, createdAt, console, days, controllers, projector, price } = rent;
               const consoleImg =
                 console === "ps4" && controllers === 2

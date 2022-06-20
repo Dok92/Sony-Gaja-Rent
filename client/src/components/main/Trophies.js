@@ -1,17 +1,19 @@
 import { useEffect } from "react";
 import { useAppContext } from "../../context/appContext";
 import { bronzeTrophy, silverTrophy, goldTrophy, platinumTrophy } from '../../assets/trophies/index'
+import Loading from "../../components/Loading";
 import dayjs from "dayjs";  
 import "./Profile.scss";
 
 const Trophies = () => {
   const { 
+    isLoading,
     trophyRents,
     getTrophyRents, 
   } = useAppContext();
 
   useEffect(() => { 
-    getTrophyRents();
+    getTrophyRents()
   }, []);
 
   dayjs.locale('sr')
@@ -33,7 +35,7 @@ const Trophies = () => {
     <div className='tbl-content'>
       <table>
         <tbody>
-          {trophyRents.map((trophyRent) => {
+          {isLoading ? <Loading center /> : trophyRents.map((trophyRent) => {
             const { _id, createdAt, trophy } = trophyRent;
 
             const trophyData = 

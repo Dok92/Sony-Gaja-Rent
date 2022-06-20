@@ -1,6 +1,6 @@
 import { Rent, Profile } from "../../data.js"; 
 
-export const navMenu = [
+export const topNav = [
   {
     label: "Rent",
     url: "/rent",
@@ -13,7 +13,7 @@ export const navMenu = [
       },     
       {
         app: Rent.ps4,      
-      },     
+      },
     ],
   },
   {
@@ -26,4 +26,4 @@ export const navMenu = [
   },
 ];
 
-export default navMenu;
+export default topNav;
