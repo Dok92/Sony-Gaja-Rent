@@ -1,6 +1,7 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import { useAppContext } from "../../context/appContext";
 import { useLocation } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import Alert from "../Alert";
 import FormRow from "../FormRow";
 import FormRowSelect from "../FormRowSelect";
@@ -27,12 +28,15 @@ const AddRent = () => {
     totalRents,
     handleChange,
     createRent,
-    getRents
+    getRents,
+    user
   } = useAppContext();
 
   const location = useLocation().pathname;  
 
   const [isTrophyActive, setIsTrophyActive] = useState();
+
+  const form = useRef();
 
   useEffect(() => {
     const psPricing = () => {
@@ -145,7 +149,26 @@ const AddRent = () => {
     setTimeout(() => {
       setIsTrophyActive();
     }, 5000); 
-    createRent();  
+    createRent(); 
+
+    // Send email notification to admin 
+    const templateParams = {
+      email: user.email,
+      name: user.name,
+      console,
+      controllers,
+      days,
+      rentLocation,
+      projector,
+      phone,
+      price,
+  };
+  emailjs.send('service_2z0beii','template_hcw1z0c', templateParams, 'UDt6VBDiGKB9aIwhm')
+	.then((response) => {
+	   window.console.log('SUCCESS!', response.status, response.text);
+	}, (err) => {
+	   window.console.log('FAILED...', err);
+	});
   };
 
   const handleRentInput = (e) => {
@@ -161,7 +184,7 @@ const AddRent = () => {
   return (
     <>   
     <TrophyAlert isTrophyActive={isTrophyActive}/>
-    <form className='form-add-rent'>
+    <form ref={form} className='form-add-rent'>
       {showAlert && <Alert />}
       <div className='form-center'>
         <FormRowSelect
