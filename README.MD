@@ -1,12 +1,15 @@
 # Sony Gaja Rent
 
+
 #### Rent PS4 & PS5 consoles
+
+Sony Gaja Rent is Sony PlayStation interface like website for renting sony. It was built as an extension to the [sony-gaja](https://github.com/Dok92/sony-gaja) website, with intention to provide registered users a way to earn additional discounts, as well as being my own personal showcase project.
 
 Project in Action - [sony-gaja-rent](https://sony-gaja-rent.herokuapp.com/)
 For full experience use credentials:
 - Email:     test@gmail.com
 - Password:  123456
-
+---
 ### Run The App Locally
 
 ```sh
@@ -126,4 +129,28 @@ npm i morgan
   Sanitizes user-supplied data to prevent MongoDB Operator Injection.
 - [express-rate-limit](https://www.npmjs.com/package/express-rate-limit)
   Basic rate-limiting middleware for Express.
+
+  ---
+
+  ## TODO
+
+- Try different (more modern) approach - rewrite entire app using only functional components, styled        components, framer motion (react animations)
+- Edit user functionality
+- Add phone number in user model, basic CRUD, use as default, instead of typing on every rent adding
+###
+
+- Register page: add confirm, show, forgot/reset password
+
+![](https://i.stack.imgur.com/NjuC4.gif)
+
+- Avatar choosing
+
+![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/09/ps4-select-an-avatar.jpeg)
+
+- Trophies achievements, additional awards and discounts
+
+![](https://images.pushsquare.com/56b6e4b00c211/1280x720.jpg)
+
+
+
 
