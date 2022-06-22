@@ -115,7 +115,7 @@ npm i morgan
 
 - Format Dates
 ```sh
-npm i morgan
+npm i dayjs
 ```
 
 
