@@ -20,6 +20,13 @@ const app = express()
 
 app.use(express.json())
 app.use(helmet())
+
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        connectSrc: ["'self'", "https://api.emailjs.com/api/v1.0/email/send"],
+    }
+}));
+
 app.use(xss())
 app.use(mongoSanitize())
 
