@@ -150,7 +150,3 @@ npm i dayjs
 - Trophies achievements, additional awards and discounts
 
 ![](https://images.pushsquare.com/56b6e4b00c211/1280x720.jpg)
-
-
-
-
