@@ -17,7 +17,7 @@ npm run install-dependencies
 ```
 
 - rename .env.temp to .env
-- setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME
+- setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME 
 
 ```sh
 npm start
@@ -150,7 +150,3 @@ npm i dayjs
 - Trophies achievements, additional awards and discounts
 
 ![](https://images.pushsquare.com/56b6e4b00c211/1280x720.jpg)
-
-
-
-
