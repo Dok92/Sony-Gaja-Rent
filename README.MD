@@ -9,7 +9,8 @@ Project in Action - [sony-gaja-rent](https://sony-gaja-rent.herokuapp.com/)
 For full experience use credentials:
 - Email:     test@gmail.com
 - Password:  123456
-  Feel free to order :)
+- Feel free to order :sunglasses:
+
 ---
 ### Run The App Locally
 
