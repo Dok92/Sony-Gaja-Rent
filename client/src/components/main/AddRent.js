@@ -113,7 +113,8 @@ const AddRent = () => {
       let type = "";
       let text = "";
       let discount = 1
-
+      
+      // check if next order should fire trophy alert
       // eslint-disable-next-line no-unused-expressions
       totalRents === 0 ? (type = "bronze", text = "Prva porudžbina") 
       : totalRents === 4 ? (type = "silver", text = "Peta porudžbina")
@@ -143,7 +144,7 @@ const AddRent = () => {
       displayAlert();
       return;
     }
-    if (trophyType !== "") {
+    if (trophyType !== "") {      
     setIsTrophyActive("active");        
   }
     setTimeout(() => {
