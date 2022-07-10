@@ -45,7 +45,6 @@ const reducer = (state, action) => {
       isLoading: false,
       token: action.payload.token,
       user: action.payload.user,
-      userLocation: action.payload.location,
       rentLocation: action.payload.location,
       showAlert: true,
       alertType: 'success',
