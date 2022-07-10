@@ -21,11 +21,9 @@ const register = async (req, res) => {
   res.status(StatusCodes.CREATED).json({
     user: {
       name: user.name,
-      email: user.email,
-      location: user.location,
+      email: user.email
     },
-    token,
-    location: user.location,
+    token
   });
 };
 
@@ -49,7 +47,7 @@ const login = async (req, res) => {
 
   user.password = undefined;
 
-  res.status(StatusCodes.OK).json({ user, token, location: user.location });
+  res.status(StatusCodes.OK).json({ user, token });
 };
 
 export { register, login };
