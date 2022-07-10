@@ -22,7 +22,6 @@ import {
 
 const token = localStorage.getItem('token')
 const user = localStorage.getItem('user')
-const userLocation = localStorage.getItem('location')
 
 const initialState = {
   isLoading: false,
@@ -33,7 +32,6 @@ const initialState = {
   trophyText: '',
   user: user ? JSON.parse(user) : null,
   token: token,
-  userLocation: userLocation || '',
   console: '',
   days: 0, 
   daysOptionsPs4: ['', 1, 2, 3, 4, 5, 6, 7], 
@@ -100,30 +98,28 @@ const AppProvider = ({ children }) => {
     }, 3000)
   }
 
-  const addUserToLocalStorage = ({ user, token, location }) => {
+  const addUserToLocalStorage = ({ user, token }) => {
     localStorage.setItem('user', JSON.stringify(user))
     localStorage.setItem('token', token)
-    localStorage.setItem('location', location)
 }
 
   const removeUserFromLocalStorage = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
-    localStorage.removeItem('location')
   }
 
   const setupUser = async ({ currentUser, endPoint, alertText }) => {
     dispatch({ type: SETUP_USER_BEGIN })
     try {
       const { data } = await axios.post(`/api/v1/auth/${endPoint}`, currentUser)
-      const { user, token, location } = data
+      const { user, token } = data
 
       dispatch({
         type: SETUP_USER_SUCCESS,
-        payload: { user, token, location, alertText },
+        payload: { user, token, alertText },
       })
 
-      addUserToLocalStorage({ user, token, location })
+      addUserToLocalStorage({ user, token })
     } 
     catch (error) {
       dispatch({
