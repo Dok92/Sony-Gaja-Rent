@@ -3,9 +3,9 @@ import { StatusCodes } from 'http-status-codes'
 import { BadRequestError } from '../errors/index.js'
 
 const createRent = async (req, res) => {
-    const { days, controllers, rentLocation } = req.body
+    const { days, controllers, rentLocation, phone } = req.body
 
-    if (!days || !controllers || !rentLocation) {
+    if (!days || !controllers || !rentLocation || !phone) {
         throw new BadRequestError('Molimo popunite sva polja')
     }   
     

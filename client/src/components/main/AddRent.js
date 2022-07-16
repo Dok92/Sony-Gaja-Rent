@@ -112,7 +112,6 @@ const AddRent = () => {
     const checkTrophy = () => {
       let type = "";
       let text = "";
-      let discount = 1
       
       // check if next order should fire trophy alert
       // eslint-disable-next-line no-unused-expressions
@@ -120,19 +119,25 @@ const AddRent = () => {
       : totalRents === 4 ? (type = "silver", text = "Peta porudžbina")
       : totalRents === 9 ? (type = "gold", text = "Deseta porudžbina")
       : totalRents === 10 ? (type = "platinum", text = "Preko 10 porudžbina")
-      : (type = "", text = "")
+      : type = "", text = ""
       
+      return {type, text}    
+    }
+
+    const discount = () => {
+      let discount
+
       totalRents === 1 ? discount = 0.8
        : totalRents === 5 ? discount = 0.5
        : totalRents === 10 ? discount = 0
        : totalRents > 10 ? discount = 0.9
        : discount = 1
-      
-      return {type, text, discount}    
+
+      return discount
     }
 
     handleChange({ name: "console", value: location.split("/")[1] });
-    handleChange({ name: "price", value: (psPricing() + projectorPricing()) * checkTrophy().discount });
+    handleChange({ name: "price", value: (psPricing() + projectorPricing()) * discount() });
     handleChange({ name: "trophyType", value: checkTrophy().type });
     handleChange({ name: "trophyText", value: checkTrophy().text });
   }, [console, controllers, days, location, projector]);
@@ -140,16 +145,26 @@ const AddRent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!days || !controllers || !rentLocation) {
+    if (!days || !controllers || !rentLocation || !phone) {
       displayAlert();
       return;
     }
+    
+    // valid phone number format
+    let regex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g
+
+    if (!regex.test(phone)) {
+      createRent();
+      return;
+    }
+
     if (trophyType !== "") {      
     setIsTrophyActive("active");        
   }
     setTimeout(() => {
       setIsTrophyActive();
     }, 5000); 
+
     createRent(); 
 
     // Send email notification to admin 
@@ -163,13 +178,13 @@ const AddRent = () => {
       projector,
       phone,
       price,
-  };
-  emailjs.send('service_2z0beii','template_hcw1z0c', templateParams, 'UDt6VBDiGKB9aIwhm')
-	.then((response) => {
-	   window.console.log('SUCCESS!', response.status, response.text);
-	}, (err) => {
-	   window.console.log('FAILED...', err);
-	});
+    };
+    emailjs.send('service_2z0beii','template_hcw1z0c', templateParams, 'UDt6VBDiGKB9aIwhm')
+    .then((response) => {
+      window.console.log('SUCCESS!', response.status, response.text);
+    }, (err) => {
+      window.console.log('FAILED...', err);
+    });
   };
 
   const handleRentInput = (e) => {
@@ -180,7 +195,7 @@ const AddRent = () => {
 
   useEffect(() => { 
     getRents();
-  }, [days]);
+  }, [days]); 
 
   return (
     <>   

@@ -26,6 +26,7 @@ const RentSchema = new Schema(
     phone: {
       type: String,
       required: [true, 'Molimo unesite broj telefona'],
+      match: [/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g, 'Molimo unesite broj telefona u validnom formatu'],
     },
     price: {
       type: Number

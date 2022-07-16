@@ -15,6 +15,8 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         defaultError.msg = `${Object.keys(err.keyValue)} polje mora biti jedinstveno`
     }
     res.status(defaultError.statusCode).json({ msg: defaultError.msg })
+    // console the error
+    next(err)
 }
 
 export default errorHandlerMiddleware

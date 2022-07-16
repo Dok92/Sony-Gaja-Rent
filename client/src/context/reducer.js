@@ -62,7 +62,7 @@ const reducer = (state, action) => {
   }
   if (action.type === TOGGLE_SIDEBAR) {
     return {
-      ...state,
+      ...state, 
       showSidebar: !state.showSidebar,
     }
   }
@@ -88,7 +88,7 @@ const reducer = (state, action) => {
       rentLocation: '',
       projector: '',
       note: '',
-      phone: ''
+      phone: '' 
     }
     return {
       ...state,
