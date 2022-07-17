@@ -168,23 +168,23 @@ const AddRent = () => {
     createRent(); 
 
     // Send email notification to admin 
-    // const templateParams = {
-    //   email: user.email,
-    //   name: user.name,
-    //   console,
-    //   controllers,
-    //   days,
-    //   rentLocation,
-    //   projector,
-    //   phone,
-    //   price,
-    // };
-    // emailjs.send('service_2z0beii','template_hcw1z0c', templateParams, 'UDt6VBDiGKB9aIwhm')
-    // .then((response) => {
-    //   window.console.log('SUCCESS!', response.status, response.text);
-    // }, (err) => {
-    //   window.console.log('FAILED...', err);
-    // });
+    const templateParams = {
+      email: user.email,
+      name: user.name,
+      console,
+      controllers,
+      days,
+      rentLocation,
+      projector,
+      phone,
+      price,
+    };
+    emailjs.send('service_2z0beii','template_hcw1z0c', templateParams, 'UDt6VBDiGKB9aIwhm')
+    .then((response) => {
+      window.console.log('SUCCESS!', response.status, response.text);
+    }, (err) => {
+      window.console.log('FAILED...', err);
+    });
   };
 
   const handleRentInput = (e) => {
