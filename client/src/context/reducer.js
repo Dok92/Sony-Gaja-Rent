@@ -87,7 +87,6 @@ const reducer = (state, action) => {
       controllers: '',
       rentLocation: '',
       projector: '',
-      note: '',
       phone: '' 
     }
     return {

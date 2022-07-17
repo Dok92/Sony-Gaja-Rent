@@ -119,7 +119,7 @@ const AddRent = () => {
       : totalRents === 4 ? (type = "silver", text = "Peta porudžbina")
       : totalRents === 9 ? (type = "gold", text = "Deseta porudžbina")
       : totalRents === 10 ? (type = "platinum", text = "Preko 10 porudžbina")
-      : type = "", text = ""
+      : {type: "", text: ""}
       
       return {type, text}    
     }
@@ -140,7 +140,7 @@ const AddRent = () => {
     handleChange({ name: "price", value: (psPricing() + projectorPricing()) * discount() });
     handleChange({ name: "trophyType", value: checkTrophy().type });
     handleChange({ name: "trophyText", value: checkTrophy().text });
-  }, [console, controllers, days, location, projector]);
+  }, [console, controllers, days, location, projector, phone]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -168,23 +168,23 @@ const AddRent = () => {
     createRent(); 
 
     // Send email notification to admin 
-    const templateParams = {
-      email: user.email,
-      name: user.name,
-      console,
-      controllers,
-      days,
-      rentLocation,
-      projector,
-      phone,
-      price,
-    };
-    emailjs.send('service_2z0beii','template_hcw1z0c', templateParams, 'UDt6VBDiGKB9aIwhm')
-    .then((response) => {
-      window.console.log('SUCCESS!', response.status, response.text);
-    }, (err) => {
-      window.console.log('FAILED...', err);
-    });
+    // const templateParams = {
+    //   email: user.email,
+    //   name: user.name,
+    //   console,
+    //   controllers,
+    //   days,
+    //   rentLocation,
+    //   projector,
+    //   phone,
+    //   price,
+    // };
+    // emailjs.send('service_2z0beii','template_hcw1z0c', templateParams, 'UDt6VBDiGKB9aIwhm')
+    // .then((response) => {
+    //   window.console.log('SUCCESS!', response.status, response.text);
+    // }, (err) => {
+    //   window.console.log('FAILED...', err);
+    // });
   };
 
   const handleRentInput = (e) => {
